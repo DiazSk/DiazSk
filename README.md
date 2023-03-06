@@ -1,6 +1,6 @@
 ### Hi there 👋
 # 💫 About Me:
-💻Interest's in Python<br>🏫Bachelor of Engineering in Computer Engineering, University of Mumbai<br>💭"A clever person solves a problem. A wise person avoids it."<br>
+💻Interest's in Python<br>🏫Bachelor in Computer Engineering, University of Mumbai<br>💭"A clever person solves a problem. A wise person avoids it."<br>
 
 # 🌐 Find me elsewhere:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/zaaidddd_) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ZaidShaikh) 
