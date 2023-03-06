@@ -3,7 +3,7 @@
 💻Interest's in Python<br>🏫Bachelor in Computer Engineering, University of Mumbai<br>💭"A clever person solves a problem. A wise person avoids it."<br>
 
 # 🌐 Find me elsewhere:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/zaaidddd__/?next=%2F) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ZaidShaikh) 
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/zaaidddd__/?next=%2F) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/zaid-shaikh-161232207) 
 
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=DiazSk&theme=radical&hide_border=false&include_all_commits=true&count_private=true)
