@@ -1,5 +1,5 @@
 ### Hi there 👋
-<h2>🙋🏻‍♂️ About Me:</h2><br>
+<h1>🙋🏻‍♂️ About Me:</h1><br>
 💻Interest's in Python<br>🏫Bachelor in Computer Engineering, University of Mumbai<br>💭"A clever person solves a problem. A wise person avoids it."<br>
 
 # 🌐 Find me elsewhere:
