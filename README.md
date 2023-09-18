@@ -22,7 +22,7 @@
 
 ###
 
-- 🏫 Bachelor in Computer Engineering, University of Mumbai.<br>- 💻 Interest's in Python.<br>- 🔭 I’m working on Python Libraries for Data Analytics & Power BI.<br>- 📚 I'm currently learning Data analytics.<br>- 📫 How to reach me zaid07sk@gmail.com<br>- 💭 "A clever person solves a problem. A wise person avoids it."<br>
+ - 🏫 Bachelor in Computer Engineering, University of Mumbai.<br>- 💻 Interest's in Python.<br>- 🔭 I’m working on Python Libraries for Data Analytics & Power BI.<br>- 📚 I'm currently learning Data analytics.<br>- 📫 How to reach me zaid07sk@gmail.com<br>- 💭 "A clever person solves a problem. A wise person avoids it."<br>
 
 ###
 
