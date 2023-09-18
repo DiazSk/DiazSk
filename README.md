@@ -18,11 +18,8 @@
 
 ###
 
-<h3 align="left">👩‍💻  About Me</h3>
-
-###
-
- - 🏫 Bachelor in Computer Engineering, University of Mumbai.<br>💻 Interest's in Python.<br>- 🔭 I’m working on Python Libraries for Data Analytics & Power BI.<br>- 📚 I'm currently learning Data analytics.<br>- 📫 How to reach me zaid07sk@gmail.com<br>- 💭 "A clever person solves a problem. A wise person avoids it."<br>
+# 💫 About Me:
+- 🏫 Bachelor in Computer Engineering, University of Mumbai.<br>- 💻 Interest's in Python.<br>- 🔭 I’m working on Python Libraries for Data Analytics & Power BI.<br>- 📚 I'm currently learning Data analytics.<br>- 📫 How to reach me zaid07sk@gmail.com<br>- 💭 "A clever person solves a problem. A wise person avoids it."<br>
 
 ###
 
@@ -68,3 +65,13 @@
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=DiazSk&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
 ###
+
+# 💫 About Me:
+- 🏫 Bachelor in Computer Engineering, University of Mumbai.<br>- 💻 Interest's in Python.<br>- 🔭 I’m working on Python Libraries for Data Analytics & Power BI.<br>- 📚 I'm currently learning Data analytics.<br>- 📫 How to reach me zaid07sk@gmail.com<br>- 💭 "A clever person solves a problem. A wise person avoids it."<br>
+
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=DiazSk&theme=radical&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=DiazSk&theme=radical&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=DiazSk&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
