@@ -12,10 +12,6 @@
 
 ###
 
-<div align="center">
-  <img src="https://profile-counter.glitch.me/DiazSK/count.svg?"  />
-</div>
-
 ###
 
 <h1 align="center">Hey there, I'm Zaid 👋</h1>
