@@ -71,16 +71,16 @@ I'm a passionate Data Analytics Engineer focused on building **customer-obsessed
       </div>
     </td>
     <td width="50%">
-      <h3 align="center">📈 SuperStore Sales Dashboard</h3>
+      <h3 align="center">📄 AI Resume Analyzer</h3>
       <div align="center">
-        <a href="https://github.com/DiazSk/SuperStore_Sales_Dashboard">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=SuperStore_Sales_Dashboard&theme=dark" alt="Sales Dashboard"/>
+        <a href="https://github.com/DiazSk/Ai_Powered_Resume_Analyzer">
+          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=Ai_Powered_Resume_Analyzer&theme=dark" alt="Resume Analyzer"/>
         </a>
-        <p><strong>Power BI | SQL | Python</strong></p>
-        <p>Real-time business intelligence dashboard</p>
-        <p>📊 15% increase in sales insights accuracy</p>
+        <p><strong>JavaScript | NLP | Machine Learning</strong></p>
+        <p>Smart ATS optimization tool</p>
+        <p>⚡ 3s analysis time | 85% match accuracy</p>
       </div>
-    </td>
+    </td
   </tr>
 </table>
 
