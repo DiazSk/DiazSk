@@ -127,28 +127,27 @@ graph LR
 ---
 
 ## 🏆 Certifications
-
 - 🎯 **Advanced Data Analytics Professional** - Google (In Progress)
 - ☁️ **AWS Cloud Practitioner** - Amazon (Pursuing)
 
 ---
 
-## 💼 Leadership Principles in Action
+## � Professional Impact
 
-### 🎯 **Customer Obsession**
+### 🎯 **Customer Success & Impact**
 Deployed 3 production systems in 2 months with 99.85% uptime, $10M+ demonstrated loss prevention, and 99.2% model accuracy.
 
-### 🚀 **Bias for Action**
-Delivered MVP for Resume Analyzer in 2 weeks, iterating based on user feedback
+### 🚀 **Rapid Delivery & Agility**
+Delivered MVP for Resume Analyzer in 2 weeks, iterating based on user feedback to drive immediate value.
 
-### 💡 **Invent and Simplify**
-Created simple, elegant solutions to complex data problems, reducing processing time by 60%
+### 💡 **Innovation & Optimization**
+Created simple, elegant solutions to complex data problems, reducing processing time by 60% through architectural improvements.
 
-### 📊 **Dive Deep**
-Conducted thorough root cause analysis in customer churn project, uncovering hidden patterns
+### 📊 **Analytical Problem Solving**
+Conducted thorough root cause analysis in customer churn projects, uncovering hidden patterns that led to actionable business strategies.
 
-### ✅ **Deliver Results**
-Consistently delivered projects on time with measurable business impact
+### ✅ **Proven Track Record**
+Consistently delivered projects on time with measurable business impact, focusing on scalability and reliability.
 
 ---
 
@@ -156,11 +155,10 @@ Consistently delivered projects on time with measurable business impact
 
 <div align="center">
 
-I'm actively looking for opportunities to contribute to Amazon's mission of being Earth's most customer-centric company. 
-Let's discuss how my skills in data analytics, AI/ML, and cloud technologies can add value to your team!
+I'm actively looking for **Data Engineering** opportunities where I can build scalable platforms, optimize data pipelines, and drive business value through technical innovation.
 
 📧 **Email**: [zaid07sk@gmail.com](mailto:zaid07sk@gmail.com)  
-💼 **LinkedIn**: [linkedin.com/in/zaidshaikhscientist](https://www.linkedin.com/in/zaidshaikhscientist/)  
+💼 **LinkedIn**: [linkedin.com/in/zaidshaikhengineer](https://www.linkedin.com/in/zaidshaikhengineer/)  
 📍 **Location**: Seattle, United States (Open to relocation)  
 🎯 **Target Roles**: Data Engineer | Software Development Engineer | Business Intelligence Engineer
 
@@ -170,6 +168,6 @@ Let's discuss how my skills in data analytics, AI/ML, and cloud technologies can
 
 <div align="center">
   
-**"Working backwards from customer needs drives innovation"** - *Amazon Leadership Principle*
+**"Turning raw data into reliable insights."**
 
 </div>
