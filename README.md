@@ -23,33 +23,69 @@ I'm a passionate **Data Engineer** focused on building scalable, reliable, and a
 - **☁️ Cloud Engineering**: Architecting serverless and containerized solutions on AWS
 - **🛠️ Data Ops**: Implementing CI/CD, Infrastructure as Code (Terraform), and Data Quality checks
 
-### 🎯 Current Focus:
-- 🔭 Advanced Stream Processing patterns with Apache Flink
-- 🌱 Optimizing Data Lakehouse architectures
-- 💻 Contributing to open-source data engineering projects
-- 📚 Pursuing AWS Certified Solutions Architect certification
-
 ---
 
 ## 🚀 Featured Projects
 
 ### 1. [Real-Time Cryptocurrency Market Analyzer](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer)
-**Tech Stack:** Apache Flink, Kafka, Redis, TimescaleDB, FastAPI, Docker
-- **Real-Time Streaming:** Engineered a low-latency pipeline processing crypto market data with **exactly-once semantics** using Apache Flink.
-- **Dual-Storage Architecture:** Implemented a hybrid storage pattern using **Redis** for sub-millisecond real-time access and **TimescaleDB** for efficient historical time-series analysis.
-- **Fault Tolerance:** Designed a robust system with stateful anomaly detection and automated recovery mechanisms.
+**High-Throughput Stream Processing Engine**
+![Flink](https://img.shields.io/badge/Apache_Flink-E6526F?style=for-the-badge&logo=apacheflink&logoColor=white) ![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white) ![TimescaleDB](https://img.shields.io/badge/TimescaleDB-FDC500?style=for-the-badge&logo=postgresql&logoColor=black)
+
+> Engineered a low-latency pipeline processing crypto market data with **exactly-once semantics**. Implemented a **Dual-Storage Architecture** using Redis for sub-millisecond real-time access and TimescaleDB for efficient historical analysis.
+
+```mermaid
+graph LR
+    A[CoinGecko API] -->|Poll 30s| B(Python Producer)
+    B -->|JSON| C{Kafka}
+    C -->|Topic: crypto-prices| D[Apache Flink]
+    D -->|Tumbling Window| E{Dual Sink}
+    E -->|Hot Data| F[(Redis)]
+    E -->|Historical| G[(TimescaleDB)]
+    F -->|Pub/Sub| H[FastAPI]
+    G -->|Query| H
+    H -->|WebSocket| I[Streamlit Dashboard]
+```
+
+<br>
 
 ### 2. [Modern E-Commerce Analytics Platform](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform)
-**Tech Stack:** Apache Airflow, dbt, AWS S3, PostgreSQL, Terraform, Great Expectations
-- **Scalable Data Warehouse:** Built a production-grade ELT pipeline orchestrating data ingestion into a **Star Schema** warehouse optimized for BI reporting.
-- **Data Quality & Ops:** Integrated **Great Expectations** for automated data validation and **Terraform** for Infrastructure as Code (IaC) provisioning.
-- **Business Intelligence:** Enabled data-driven decision making with comprehensive dashboards for customer behavior and sales performance.
+**Enterprise-Grade Data Warehouse & ELT Pipeline**
+![Airflow](https://img.shields.io/badge/Apache_Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white) ![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
+
+<table>
+<tr>
+<td width="40%">
+
+- **Scalable Data Warehouse:** Built a production-grade ELT pipeline orchestrating data ingestion into a **Star Schema** warehouse.
+- **Data Quality & Ops:** Integrated **Great Expectations** for automated data validation and **Terraform** for IaC.
+- **Business Intelligence:** Enabled data-driven decision making with comprehensive dashboards.
+
+</td>
+<td width="60%">
+<img src="https://raw.githubusercontent.com/DiazSk/Modern-E-commerce-Analytics-Platform/main/docs/architecture/diagrams/high_level_architecture_diagram.png" alt="Architecture Diagram" width="100%">
+</td>
+</tr>
+</table>
+
+<br>
 
 ### 3. [Real-time NYC Taxi Data Platform](https://github.com/DiazSk/real-time-NYC-taxi-data-platform)
-**Tech Stack:** Apache Spark, Kafka, AWS EMR, S3
-- **Big Data Processing:** Developed a scalable streaming platform to analyze high-volume NYC Taxi trip data in real-time.
-- **Cloud Native:** Leveraged **AWS EMR** for distributed processing and **S3** for durable data lake storage.
-- **Traffic Insights:** Implemented sliding window aggregations to detect traffic patterns and demand hotspots instantly.
+**Distributed Stream Processing at Scale**
+![Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white) ![AWS EMR](https://img.shields.io/badge/AWS_EMR-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) ![S3](https://img.shields.io/badge/AWS_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white)
+
+> Developed a scalable streaming platform to analyze high-volume NYC Taxi trip data in real-time. Leveraged **AWS EMR** for distributed processing and **S3** for durable data lake storage, implementing sliding window aggregations to detect traffic patterns instantly.
+
+```mermaid
+graph LR
+    A[NYC Taxi Data] -->|Stream| B{Apache Kafka}
+    B -->|Topic: trips| C[Apache Spark Streaming]
+    C -->|Aggregations| D[(AWS S3 Data Lake)]
+    C -->|Real-time Metrics| E[Dashboard]
+    subgraph AWS Cloud
+    C
+    D
+    end
+```
 
 ---
 
