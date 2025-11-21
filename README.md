@@ -6,7 +6,7 @@
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zaid07sk@gmail.com)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DiazSk)
 
-### Data Analytics Engineer | AI/ML Enthusiast | Building Scalable Solutions
+### Data Engineer | Big Data & Streaming | Cloud Infrastructure
 **🎓 Computer Science @ Northeastern University | 🚀 Actively Seeking Opportunities for Summer 2026**
 
 </div>
@@ -15,102 +15,65 @@
 
 ## 🎯 About Me
 
-I'm a passionate Data Analytics Engineer focused on building **customer-obsessed** solutions that drive **measurable business impact**. With expertise in Python, TypeScript, and cloud technologies, I transform complex data challenges into scalable, innovative solutions.
+I'm a passionate **Data Engineer** focused on building scalable, reliable, and automated data platforms. With expertise in **distributed systems**, **real-time streaming**, and **cloud infrastructure**, I engineer robust solutions that turn raw data into actionable insights. I enjoy solving complex data challenges using modern technologies like Apache Spark, Flink, Kafka, and AWS.
 
-### 💡 What I Bring to the Table:
-- **📊 Data-Driven Decision Making**: Reduced customer churn by 25% through predictive analytics (Telco Customer Intelligence project)
-- **🤖 AI Innovation**: Built 3 production-ready AI applications improving user productivity by 40%
-- **⚡ Full-Stack Development**: End-to-end implementation from data pipelines to interactive dashboards
-- **📈 Business Impact**: Created analytics solutions processing 100K+ records daily with 99.9% accuracy
+### 💡 Core Competencies:
+- **🏗️ Data Architecture**: Designing fault-tolerant ETL/ELT pipelines and data lakes/warehouses
+- **⚡ Real-Time Processing**: Building low-latency streaming applications with Flink and Kafka
+- **☁️ Cloud Engineering**: Architecting serverless and containerized solutions on AWS
+- **🛠️ Data Ops**: Implementing CI/CD, Infrastructure as Code (Terraform), and Data Quality checks
 
 ### 🎯 Current Focus:
-- 🔭 Building scalable data pipelines using Python & Apache Spark
-- 🌱 Mastering AWS services (EC2, S3, Lambda, SageMaker)
-- 💻 Contributing to open-source data analytics tools
+- 🔭 Advanced Stream Processing patterns with Apache Flink
+- 🌱 Optimizing Data Lakehouse architectures
+- 💻 Contributing to open-source data engineering projects
 - 📚 Pursuing AWS Certified Solutions Architect certification
 
 ---
 
 ## 🚀 Featured Projects
 
-<table>
-  <tr>
-    <td width="50%">
-      <h3 align="center">🔍 Telco Customer Intelligence</h3>
-      <div align="center">
-        <a href="https://github.com/DiazSk/telco-customer-intelligence">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=telco-customer-intelligence&theme=dark" alt="Telco Customer Intelligence"/>
-        </a>
-        <p><strong>Python | Scikit-learn | Pandas</strong></p>
-        <p>Predictive analytics system reducing churn by 25%</p>
-        <p>📊 Processes 50K+ customer records | 92% prediction accuracy</p>
-      </div>
-    </td>
-    <td width="50%">
-      <h3 align="center">🤖 Quantum-Portfolio-Optimizer</h3>
-      <div align="center">
-        <a href="https://github.com/DiazSk/quantum-portfolio-optimizer">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=quantum-portfolio-optimizer&theme=dark" alt="AI Mock Interviews"/>
-        </a>
-        <p><strong>Python | XGBoost | Financial APIs</strong></p>
-        <p>Intelligent portfolio optimizer</p>
-        <p>🗿 System Uptime 99.85% | API response <200ms </p>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center">🛡️ Credit Card Fraud Detection System</h3>
-      <div align="center">
-        <a href="https://github.com/DiazSk/credit-card-fraud-detection-system">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=credit-card-fraud-detection-system&theme=dark" alt="Resume Analyzer"/>
-        </a>
-        <p><strong>Python | Ensemble | Machine Learning</strong></p>
-        <p>Fraud Detection System with 99.2% accuracy</p>
-        <p>🎯 99.85% Uptime | 89ms p50 Latency | $1.6M loss prevention</p>
-      </div>
-    </td>
-    <td width="50%">
-      <h3 align="center">📄 AI Resume Analyzer</h3>
-      <div align="center">
-        <a href="https://github.com/DiazSk/Ai_Powered_Resume_Analyzer">
-          <img src="https://github-readme-stats.vercel.app/api/pin/?username=DiazSk&repo=Ai_Powered_Resume_Analyzer&theme=dark" alt="Resume Analyzer"/>
-        </a>
-        <p><strong>JavaScript | NLP | Machine Learning</strong></p>
-        <p>Smart ATS optimization tool</p>
-        <p>⚡ 3s analysis time | 85% match accuracy</p>
-      </div>
-    </td
-  </tr>
-</table>
+### 1. [Real-Time Cryptocurrency Market Analyzer](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer)
+**Tech Stack:** Apache Flink, Kafka, Redis, TimescaleDB, FastAPI, Docker
+- **Real-Time Streaming:** Engineered a low-latency pipeline processing crypto market data with **exactly-once semantics** using Apache Flink.
+- **Dual-Storage Architecture:** Implemented a hybrid storage pattern using **Redis** for sub-millisecond real-time access and **TimescaleDB** for efficient historical time-series analysis.
+- **Fault Tolerance:** Designed a robust system with stateful anomaly detection and automated recovery mechanisms.
+
+### 2. [Modern E-Commerce Analytics Platform](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform)
+**Tech Stack:** Apache Airflow, dbt, AWS S3, PostgreSQL, Terraform, Great Expectations
+- **Scalable Data Warehouse:** Built a production-grade ELT pipeline orchestrating data ingestion into a **Star Schema** warehouse optimized for BI reporting.
+- **Data Quality & Ops:** Integrated **Great Expectations** for automated data validation and **Terraform** for Infrastructure as Code (IaC) provisioning.
+- **Business Intelligence:** Enabled data-driven decision making with comprehensive dashboards for customer behavior and sales performance.
+
+### 3. [Real-time NYC Taxi Data Platform](https://github.com/DiazSk/real-time-NYC-taxi-data-platform)
+**Tech Stack:** Apache Spark, Kafka, AWS EMR, S3
+- **Big Data Processing:** Developed a scalable streaming platform to analyze high-volume NYC Taxi trip data in real-time.
+- **Cloud Native:** Leveraged **AWS EMR** for distributed processing and **S3** for durable data lake storage.
+- **Traffic Insights:** Implemented sliding window aggregations to detect traffic patterns and demand hotspots instantly.
 
 ---
 
 ## 🛠️ Technical Skills
 
-### **Languages & Frameworks**
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+### **Big Data & Streaming**
+![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
+![Apache Flink](https://img.shields.io/badge/Apache_Flink-E6526F?style=for-the-badge&logo=apacheflink&logoColor=white)
+![Apache Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![Hadoop](https://img.shields.io/badge/Hadoop-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=black)
 
-### **Data & Analytics**
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-
-### **Cloud & DevOps** 
+### **Data Engineering & Cloud**
+![Apache Airflow](https://img.shields.io/badge/Apache_Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
-### **Databases**
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+### **Languages & Databases**
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)
 
 ---
 
