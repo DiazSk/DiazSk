@@ -1,8 +1,9 @@
 # Hi, I'm Zaid Shaikh 👋
 
-**Data Engineer** | MS Computer Science @ Northeastern University, Seattle (GPA: 4.0)
+**Data Engineer** | MS Computer Science @ Northeastern University, Seattle **(GPA: 4.0)**
 
-Building scalable data pipelines, warehouses, and real-time streaming systems.
+Building scalable data pipelines, warehouses, and real-time streaming systems.  
+🎯 **Seeking:** Data Engineering Internship (Summer/Fall 2026)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zaidshaikhengineer/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:shaikh.zaid@northeastern.edu)
@@ -55,3 +56,9 @@ Streaming pipeline with Kafka and dual-storage architecture
 - 📧 shaikh.zaid@northeastern.edu
 - 💼 [LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/)
 - 📍 Seattle, WA
+
+---
+
+<p align="center">
+  <i>I believe in building things the right way — production-grade code, proper documentation, and solutions that actually work.</i>
+</p>
