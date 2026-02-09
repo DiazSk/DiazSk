@@ -21,7 +21,7 @@ Building scalable data pipelines, warehouses, and real-time streaming systems.
 
 ## 📂 Featured Projects
 
-### [E-Commerce Data Warehouse (Olist)](https://github.com/DiazSk/olist-data-warehouse)
+### [E-Commerce Data Warehouse (Olist)](https://github.com/DiazSk/sql-data-warehouse)
 End-to-end data warehouse with Docker + Airflow orchestration
 
 - **Architecture:** Medallion (Bronze → Silver → Gold) with Star Schema (5 dims, 2 facts)
