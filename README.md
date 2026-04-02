@@ -27,7 +27,7 @@ End-to-end data warehouse with Docker + Airflow orchestration
 - **Architecture:** Medallion (Bronze → Silver → Gold) with Star Schema (5 dims, 2 facts)
 - **Scale:** 100K+ transactions, R$15.8M revenue, 3 external API integrations
 - **Impact:** Reduced query complexity by 60%; achieved 99%+ data integrity
-- **Tech:** PostgreSQL, Docker, Apache Airflow, Python
+- **Tech:** Snowflake, PostgreSQL, Docker, Apache Airflow, Python
 - **Setup:** `docker-compose up -d` → Full pipeline running
 
 ---
