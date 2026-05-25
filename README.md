@@ -22,12 +22,23 @@ MS Computer Science student at Northeastern University (4.0 GPA) graduating in D
 
 ## 💼 Experience
 
+### Graduate Teaching Assistant — Machine Learning (CS6140) — Northeastern University, Khoury College of Computer Sciences
+
+*May 2026 - Present*
+
+- Held weekly office hours debugging student Python implementations of PCA, multiple linear regression, and Ridge/Lasso, working through algorithm internals and scikit-learn pipelines with a graduate cohort.
+- Graded course assignments on a 10 to 12 day turnaround, reviewing model code, train/test splitting logic, and written analyses against the course rubric.
+
 ### NLP Research Assistant — Northeastern University, Khoury College of Computer Sciences
 
-*Jan 2026 — Present*
+*Sept 2025 — Present*
 
-- Co-authoring paper submitted to COLM 2026 on semantic drift in LLM paraphrasing; engineered a Composite Semantic Drift Score integrating SBERT, METEOR, and ROUGE-L across 36,827 records, revealing cumulative meaning loss reaching 331% of safety thresholds.
-- Automated semantic-drift evaluation to make analysis reproducible and decision-ready, as measured by processing 4,817 source-paraphrase pairs across 7 metrics with composite correlation of r = 0.92, by building a Python metric-orchestration pipeline for batched scoring and aggregation.
+- Engineered a Composite Semantic Drift Score for a co-authored COLM 2026 paper on LLM paraphrasing, as measured by cumulative meaning loss exceeding 331% of safety thresholds across 36,827 records, by integrating SBERT, METEOR, and ROUGE-L signals into a single weighted index.
+- Architected automated evaluation pipelines in Python to process 4,817 complex records, engineering batched scoring mechanisms that replaced manual analysis workflows.
+- Eliminated missing-field errors and achieved 100% data completeness by enforcing strict Pydantic schema contracts and staged quality gates across multi-modal data ingestion pipelines.
+- Optimized embedding throughput and reduced pipeline runtime to under 75 seconds by implementing all-mpnet-base-v2 batch encoding and fingerprint-based cache reuse.
+- Quantified non-linear semantic drift across multi-hop text generation chains, as measured by a Hop A to Hop B t-statistic of 213.15, by running paired t-test and Wilcoxon signed-rank validation scripts over the full evaluation set.
+- Engineered a scalable multi-model ingestion matrix utilizing directory-driven loaders and metadata injection, automating data processing across 7 distinct domains without manual intervention.
 
 ---
 
