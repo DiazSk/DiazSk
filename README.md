@@ -14,10 +14,9 @@ MS Computer Science student at Northeastern University (4.0 GPA) graduating in D
 ## 🛠️ Tech Stack
 
 - **Languages:** Python, SQL, Java, Bash
-- **Data & Streaming:** Apache Airflow, Apache Kafka, Apache Flink, Apache Spark (PySpark), dbt, RabbitMQ
+- **Big Data & Streaming:** Apache Airflow, Apache Kafka, Apache Flink, Apache Spark (PySpark), dbt, Great Expectations, Delta Lake, Parquet
 - **Databases:** PostgreSQL, MySQL, Snowflake, Redis, TimescaleDB, DuckDB, Cassandra, DynamoDB
-- **Cloud & DevOps:** AWS (S3, EC2, Glue, IAM, Redshift, CloudWatch), Terraform, Docker, CI/CD
-- **AI & Productivity:** Claude Code, Gemini, Great Expectations, Pytest
+- **Cloud & DevOps:** AWS (S3, EC2, Glue, IAM, Redshift, CloudWatch), Azure (Databricks, Data Factory, Data Lake), Terraform, Docker, Kubernetes Git, GitHub Actions, CI/CD
 
 ---
 
