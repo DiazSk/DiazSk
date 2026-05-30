@@ -4,10 +4,18 @@
 
 MS Computer Science student at Northeastern University (4.0 GPA) graduating in December 2026. I specialize in designing scalable distributed systems, cloud-native lakehouses, and production-grade pipelines. Beyond simply connecting modern tools, I am deeply committed to building and understanding the foundational architecture of the systems I engineer.
 
-🎯 Actively seeking **Summer & Fall 2026 Internships/Co-ops** and **Full-Time** opportunities in Data Engineering, SWE/SDE, Analytics Engineering, and BI.
+🎯 Actively seeking **Fall 2026 Internships/Co-ops** and **Full-Time** opportunities in Data Engineering, SWE/SDE, Analytics Engineering, and BI.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zaidshaikhengineer/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:shaikh.zaid@northeastern.edu)
+[LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/)
+[Email](mailto:shaikh.zaid@northeastern.edu)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=vercel&logoColor=white)](https://zaid-data.vercel.app/)
+
+---
+
+## 📊 GitHub Stats
+
+![Zaid's GitHub Stats](https://github-readme-stats.vercel.app/api?username=DiazSk&show_icons=true&theme=default&hide_border=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=DiazSk&layout=compact&hide_border=true)
 
 ---
 
@@ -88,6 +96,4 @@ MS Computer Science student at Northeastern University (4.0 GPA) graduating in D
 
 ---
 
-<p align="center">
-  <i>I believe in building things the right way — production-grade code, proper documentation, and solutions that actually work.</i>
-</p>
+*I believe in building things the right way — production-grade code, proper documentation, and solutions that actually work.*
