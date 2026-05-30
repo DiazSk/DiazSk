@@ -14,8 +14,8 @@ MS Computer Science student at Northeastern University (4.0 GPA) graduating in D
 
 ## 📊 GitHub Stats
 
-![Zaid's GitHub Stats](https://github-readme-stats.vercel.app/api?username=DiazSk&show_icons=true&theme=default&hide_border=true)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=DiazSk&layout=compact&hide_border=true)
+![Zaid's GitHub Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DiazSk&theme=default)
+![Top Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DiazSk&theme=default)
 
 ---
 
