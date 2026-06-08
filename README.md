@@ -1,99 +1,92 @@
 # Zaid Shaikh
 
-**Architecting resilient data ecosystems and scalable software systems.**
+Data Engineer and Backend SWE. I build distributed pipelines and backend systems where latency, scale, and data correctness are the actual constraints, not afterthoughts.
 
-MS Computer Science student at Northeastern University (4.0 GPA) graduating in December 2026. I specialize in designing scalable distributed systems, cloud-native lakehouses, and production-grade pipelines. Beyond simply connecting modern tools, I am deeply committed to building and understanding the foundational architecture of the systems I engineer.
+MS Computer Science, Northeastern University (Dec 2026, 4.0 GPA). Seattle, WA.
 
-🎯 Actively seeking **Fall 2026 Internships/Co-ops** and **Full-Time** opportunities in Data Engineering, SWE/SDE, Analytics Engineering, and BI.
+Available for Summer and Fall 2026 co-op. Open to full-time roles starting December 2026.
 
-[LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/)
-[Email](mailto:shaikh.zaid@northeastern.edu)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=vercel&logoColor=white)](https://zaid-data.vercel.app/)
+[shaikh.zaid@northeastern.edu](mailto:shaikh.zaid@northeastern.edu) | [LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/) | [zaid-data.vercel.app](https://zaid-data.vercel.app/)
 
 ---
 
-## 📊 GitHub Stats
+## Experience
 
-![Zaid's GitHub Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DiazSk&theme=default)
-![Top Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DiazSk&theme=default)
+**Research Co-author, The Laundering Effect** | Khoury College, Northeastern (Fall 2025 - Present)
+COLM 2026, under review. Measuring cumulative semantic erosion under iterative LLM paraphrasing across 36,800+ records. Implemented a composite Semantic Drift Score (SBERT / METEOR / ROUGE-L) that surfaces trajectory-level degradation invisible to single-step metrics.
 
----
-
-## 🛠️ Tech Stack
-
-- **Languages:** Python, SQL, Java, Bash
-- **Big Data & Streaming:** Apache Airflow, Apache Kafka, Apache Flink, Apache Spark (PySpark), dbt, Great Expectations, Delta Lake, Parquet
-- **Databases:** PostgreSQL, MySQL, Snowflake, Redis, TimescaleDB, DuckDB, Cassandra, DynamoDB
-- **Cloud & DevOps:** AWS (S3, EC2, Glue, IAM, Redshift, CloudWatch), Azure (Databricks, Data Factory, Data Lake), Terraform, Docker, Kubernetes Git, GitHub Actions, CI/CD
+**Graduate Teaching Assistant, Machine Learning (CS6140)** | Khoury College, Northeastern (May 2026 - Present)
+Weekly office hours debugging student Python implementations of PCA, regression, and regularization. Graded assignments reviewing model code, train/test logic, and written analyses.
 
 ---
 
-## 💼 Experience
+## Projects
 
-### Graduate Teaching Assistant — Machine Learning (CS6140) — Northeastern University, Khoury College of Computer Sciences
+### [Chatflow](https://github.com/DiazSk/Chatflow-Messaging-System): Real-Time Messaging Infrastructure
 
-*May 2026 - Present*
+MySQL's 2-5ms insert latency coupled message consumption to persistence speed under write-through, capping throughput at roughly 500 msg/s regardless of broker capacity. Write-behind persistence with in-memory batching (2k-5k rows/commit) decoupled the two paths entirely. CQRS isolation kept read and write models independent so write-side failures could not starve read queries.
 
-- Held weekly office hours debugging student Python implementations of PCA, multiple linear regression, and Ridge/Lasso, working through algorithm internals and scikit-learn pipelines with a graduate cohort.
-- Graded course assignments on a 10 to 12 day turnaround, reviewing model code, train/test splitting logic, and written analyses against the course rubric.
+Result: 21,091 msg/s sustained, 13ms read latency at 1M-row scale, zero data loss across 1M messages.
 
-### NLP Research Assistant — Northeastern University, Khoury College of Computer Sciences
-
-*Sept 2025 — Present*
-
-- Engineered a Composite Semantic Drift Score for a co-authored COLM 2026 paper on LLM paraphrasing, as measured by cumulative meaning loss exceeding 331% of safety thresholds across 36,827 records, by integrating SBERT, METEOR, and ROUGE-L signals into a single weighted index.
-- Architected automated evaluation pipelines in Python to process 4,817 complex records, engineering batched scoring mechanisms that replaced manual analysis workflows.
-- Eliminated missing-field errors and achieved 100% data completeness by enforcing strict Pydantic schema contracts and staged quality gates across multi-modal data ingestion pipelines.
-- Optimized embedding throughput and reduced pipeline runtime to under 75 seconds by implementing all-mpnet-base-v2 batch encoding and fingerprint-based cache reuse.
-- Quantified non-linear semantic drift across multi-hop text generation chains, as measured by a Hop A to Hop B t-statistic of 213.15, by running paired t-test and Wilcoxon signed-rank validation scripts over the full evaluation set.
-- Engineered a scalable multi-model ingestion matrix utilizing directory-driven loaders and metadata injection, automating data processing across 7 distinct domains without manual intervention.
+`Java` `RabbitMQ` `Redis` `MySQL` `HikariCP` `WebSockets` `AWS EC2`
 
 ---
 
-## 📂 Featured Projects
+### [Healthcare Data Lakehouse](https://github.com/DiazSk/healthcare-lakehouse-azure): Clinical Pipeline on Azure
 
-### [Chatflow Messaging System](https://github.com/DiazSk/Chatflow-Messaging-System)
+Raw Parquet gives throughput but no correctness guarantees. When audit compliance is a hard requirement, you need ACID transactions for safe concurrent writes, schema evolution without table rewrites, and time-travel for point-in-time reconstruction. Delta Lake provides all three. Raw Parquet provides none of them.
 
-- **Tech:** Java, RabbitMQ, Redis, MySQL, WebSockets, AWS EC2
-- **Impact:** Engineered a write-behind persistence pipeline sustaining throughput of **21,091 msg/s** with zero data loss. Architected CQRS-style read/write separation and optimized read-path latency to **13ms at 1M-row scale**.
+Result: 9.6M records, 80GB processed across Bronze, Silver, and Gold layers. 35% Databricks compute reduction via partition pruning and incremental load patterns.
 
----
-
-### [NYC Taxi Data Lakehouse](https://github.com/DiazSk/NYC-Taxi-Data-Lakehouse)
-
-- **Tech:** Terraform, AWS S3, Glue, Airflow, PySpark, dbt, Docker
-- **Impact:** Processed **100GB+** NYC taxi trip records (**2.8M rows**) through PySpark ETL on AWS Glue. Provisioned infrastructure using Terraform IaC and automated daily batch pipelines via Airflow DAGs.
+`Azure Data Factory` `Delta Lake` `Azure Databricks` `PySpark` `Azure Key Vault` `ADLS Gen2`
 
 ---
 
-### [Real-Time Cryptocurrency Market Analyzer](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer)
+### [Real-Time Crypto Analyzer](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer): Full-Stack Streaming Platform
 
-- **Tech:** Kafka, Flink (Java), Redis, PostgreSQL, Docker
-- **Impact:** Achieved **99% polling reduction** via Kafka key-based partitioning and Flink exactly-once processing. Architected a hybrid Redis/TimescaleDB dual-storage system serving 20+ concurrent users with sub-second response times.
+300 REST polling calls per minute per user was the baseline. The real constraint was fan-out: as concurrent WebSocket users scaled, polling volume multiplied and upstream rate limits became the bottleneck. Kafka pub/sub collapsed 300 calls to 2 events per market update. Dual-path storage separates read concerns: Redis for sub-1ms hot reads serving 20+ concurrent WebSocket users, TimescaleDB for OHLC aggregations and cold historical queries that would thrash an in-memory store.
 
----
+Result: 99% polling reduction, sub-100ms end-to-end latency from market tick to browser.
 
-### [E-Commerce Data Warehouse (Olist)](https://github.com/DiazSk/sql-data-warehouse-project)
-
-- **Tech:** Python, PostgreSQL, Snowflake, Airflow, Docker, marimo
-- **Impact:** Designed a Medallion-architecture warehouse (Bronze → Silver → Gold) centralizing **14 sources for 1.6M+ records**. Reduced SQL query latency by **90%** via query tuning and data normalization.
+`Next.js 16` `FastAPI` `Apache Kafka` `Apache Flink (Java)` `Redis` `TimescaleDB` `Docker`
 
 ---
 
-### [Scalable E-Commerce Analytics Platform](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform)
+### [NYC Taxi Data Lakehouse](https://github.com/DiazSk/NYC-Taxi-Data-Lakehouse): 100GB Batch Pipeline on AWS
 
-- **Tech:** Apache Airflow, dbt, PostgreSQL, AWS, Terraform, Docker
-- **Architecture:** S3 Data Lake → dbt transformations → Analytics Mart with SCD Type 2 dimensions
-- **Impact:** Optimized query time from **4.2s → 1.1s (74% improvement)** across 3 data sources and 50K+ events.
+Athena charges $5 per TB scanned. On 100GB+ of raw Parquet, every dbt model run across a full development cycle compounds that cost fast. AWS Glue with serverless Spark ETL runs deduplication, schema normalization, and null-handling once at ingest, producing a clean materialized layer. The clean layer is a guaranteed fact for downstream dbt models rather than a per-query assumption.
 
----
+Result: 2.8M clean records, 96.8% data retention through quality gates. Fully reproducible via Terraform IaC.
 
-## 📫 Contact
-
-- 📧 [shaikh.zaid@northeastern.edu](mailto:shaikh.zaid@northeastern.edu)
-- 💼 [LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/)
-- 📍 Seattle, WA
+`AWS Glue` `PySpark` `Apache Airflow` `dbt` `AWS S3` `Terraform` `Docker`
 
 ---
 
-*I believe in building things the right way — production-grade code, proper documentation, and solutions that actually work.*
+### [Scalable E-Commerce Analytics Platform](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform): CLV Attribution Pipeline
+
+SCD Type 1 overwrites history. Historical attribution is a hard business requirement for segment-specific customer lifetime value analysis: you need to reconstruct which customer state drove which revenue event at any point in time. SCD Type 2 preserves the full slowly-changing dimension history needed for that reconstruction. The 2-3x storage footprint increase is the deliberate tradeoff.
+
+Result: 146 dbt tests covering schema contracts, freshness, and referential integrity. Query time 4.2s to 1.1s across 50K+ events.
+
+`Apache Airflow` `dbt` `PostgreSQL` `AWS S3` `Terraform` `Docker`
+
+---
+
+### [E-Commerce Data Warehouse (Olist)](https://github.com/DiazSk/sql-data-warehouse-project): Star Schema Warehouse
+
+Snowflake schemas normalize storage but multiply join depth for read-heavy OLAP queries. Wide tables simplify queries but introduce double-counting in aggregations when orders and order items share a fact row. A strict star schema with two grain-specific fact tables (orders vs. items) resolves both failure modes: each fact table has one grain, one join path, no aggregation ambiguity.
+
+Result: 90% query latency reduction over the pre-modeled baseline across 14 source systems and 1.6M+ records.
+
+`Python` `PostgreSQL` `Snowflake` `Apache Airflow` `Docker`
+
+---
+
+## Stack
+
+**Data Platforms & Pipelines:** Apache Spark (PySpark), Apache Airflow, Apache Kafka, Apache Flink, dbt, Azure Data Factory, ELT/ETL Pipelines, RabbitMQ,Medallion Architecture
+**Storage & Databases:** PostgreSQL, MySQL, MongoDB, Redis, TimescaleDB, Snowflake, DuckDB, AWS S3, Delta Lake
+**Cloud & Infrastructure:** AWS (Glue, S3, Redshift, IAM, CloudWatch), Azure (ADLS Gen2, Data Factory, Databricks, Key Vault), Terraform, Docker, GitHub Actions, GitLab CI/CD Pipelines, Jenkins
+**Languages:** Python, Java, SQL, Typescript, Bash
+**Product & APIs:** FastAPI, Next.js 16, React 19, Tailwind CSS, shadcn/ui, Zod, WebSockets
+**Observability & Quality Assurance:** Great Expectations, dbt Tests, Pytest, JUnit, Mockito, Data Quality Checks, Data Lineage, Pre-commit Hooks, Power BI, Metabase, Streamlit
