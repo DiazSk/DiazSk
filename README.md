@@ -84,9 +84,9 @@ Result: 90% query latency reduction over the pre-modeled baseline across 14 sour
 
 ## Stack
 
-**Data Platforms & Pipelines:** Apache Spark (PySpark), Apache Airflow, Apache Kafka, Apache Flink, dbt, Azure Data Factory, ELT/ETL Pipelines, RabbitMQ,Medallion Architecture
-**Storage & Databases:** PostgreSQL, MySQL, MongoDB, Redis, TimescaleDB, Snowflake, DuckDB, AWS S3, Delta Lake
-**Cloud & Infrastructure:** AWS (Glue, S3, Redshift, IAM, CloudWatch), Azure (ADLS Gen2, Data Factory, Databricks, Key Vault), Terraform, Docker, GitHub Actions, GitLab CI/CD Pipelines, Jenkins
-**Languages:** Python, Java, SQL, Typescript, Bash
-**Product & APIs:** FastAPI, Next.js 16, React 19, Tailwind CSS, shadcn/ui, Zod, WebSockets
-**Observability & Quality Assurance:** Great Expectations, dbt Tests, Pytest, JUnit, Mockito, Data Quality Checks, Data Lineage, Pre-commit Hooks, Power BI, Metabase, Streamlit
+**Data Platforms & Pipelines:** Apache Spark (PySpark), Apache Airflow, Apache Kafka, Apache Flink, dbt, Azure Data Factory, ELT/ETL Pipelines, RabbitMQ, Medallion Architecture  
+**Storage & Databases:** PostgreSQL, MySQL, MongoDB, Redis, TimescaleDB, Snowflake, DuckDB, AWS S3, Delta Lake  
+**Cloud & Infrastructure:** AWS (Glue, S3, Redshift, IAM, CloudWatch), Azure (ADLS Gen2, Data Factory, Databricks, Key Vault), Terraform, Docker, GitHub Actions, GitLab CI/CD Pipelines, Jenkins  
+**Languages:** Python, Java, SQL, Typescript, Bash  
+**Product & APIs:** FastAPI, Next.js 16, React 19, Tailwind CSS, shadcn/ui, Zod, WebSockets  
+**Observability & Quality Assurance:** Great Expectations, dbt Tests, Pytest, JUnit, Mockito, Data Quality Checks, Data Lineage, Pre-commit Hooks, Power BI, Metabase, Streamlit  
