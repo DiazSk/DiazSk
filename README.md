@@ -4,7 +4,7 @@ Data Engineer and Backend SWE. I build distributed pipelines and backend systems
 
 MS Computer Science, Northeastern University (Dec 2026, 4.0 GPA). Seattle, WA.
 
-Available for Summer and Fall 2026 co-op. Open to full-time roles starting December 2026.
+Open to full-time roles starting December 2026.
 
 [shaikh.zaid@northeastern.edu](mailto:shaikh.zaid@northeastern.edu) | [LinkedIn](https://www.linkedin.com/in/zaidshaikhengineer/) | [zaid-data.vercel.app](https://zaid-data.vercel.app/)
 
