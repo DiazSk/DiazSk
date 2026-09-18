@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="band.css">
+<style>
+  body { justify-content: flex-end; }
+  .mark {
+    font-size: 100px;
+    font-variation-settings: "wdth" 100;
+    letter-spacing: -0.012em;
+    line-height: 1;
+    text-transform: none;
+  }
+</style>
+
+<div><span class="display mark">Zaid Shaikh</span></div>
+
+<div>
+  <div class="rule" style="margin-top: 14px"></div>
+  <div class="meta">
+    <div class="label">Seattle, WA</div>
+    <div class="label dim">Open to full-time &middot; December 2026</div>
+    <div class="label">&copy; 2026</div>
+  </div>
+</div>
+
+<script>
+  document.fonts.ready.then(function () {
+    var el = document.querySelector('.mark');
+    var target = document.body.clientWidth - 80;
+    var lo = 10, hi = 900;
+    for (var i = 0; i < 50; i++) {
+      var mid = (lo + hi) / 2;
+      el.style.fontSize = mid + 'px';
+      if (el.getBoundingClientRect().width <= target) lo = mid; else hi = mid;
+    }
+    el.style.fontSize = lo + 'px';
+    document.documentElement.dataset.ready = '1';
+  });
+</script>

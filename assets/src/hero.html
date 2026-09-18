@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="band.css">
+<style>
+  .name { font-size: 100px; }
+  .cols { display: flex; justify-content: space-between; gap: 40px; }
+  .cols .right { text-align: right; }
+</style>
+
+<div class="name-wrap"><span class="display name">Zaid Shaikh</span></div>
+
+<div>
+  <div class="rule"></div>
+  <div class="meta cols">
+    <div class="label">
+      Data Engineer &middot; Backend Systems<br>
+      <span class="dim">Seattle, WA &middot; Available December 2026</span>
+    </div>
+    <div class="label right">
+      MS Computer Science, Northeastern<br>
+      <span class="dim">shaikh.zaid@northeastern.edu</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.fonts.ready.then(function () {
+    var el = document.querySelector('.name');
+    var target = document.body.clientWidth - 80;
+    var lo = 10, hi = 900;
+    for (var i = 0; i < 50; i++) {
+      var mid = (lo + hi) / 2;
+      el.style.fontSize = mid + 'px';
+      if (el.getBoundingClientRect().width <= target) lo = mid; else hi = mid;
+    }
+    el.style.fontSize = lo + 'px';
+    document.documentElement.dataset.ready = '1';
+  });
+</script>

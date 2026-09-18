@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Azeret+Mono:wght@500&display=swap');
+
+:root {
+  --field: #FF3B14;
+  --field-ink: #0A0A09;
+  --field-ink-2: #2E1409;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--field);
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  color: var(--field-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.display {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-optical-sizing: none;
+  line-height: 0.82;
+  font-variation-settings: "wdth" 78;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.label {
+  font-family: 'Azeret Mono', monospace;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.label.dim { color: var(--field-ink-2); }
+
+.rule {
+  height: 1px;
+  background: var(--field-ink-2);
+  width: 100%;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-top: 18px;
+}
