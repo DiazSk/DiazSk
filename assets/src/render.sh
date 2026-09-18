@@ -18,5 +18,5 @@ render() {
 }
 
 render hero     1200 400
-render marquee  1200 130
-render wordmark 1200 268
+render claim     1200 366
+render wordmark  1200 352

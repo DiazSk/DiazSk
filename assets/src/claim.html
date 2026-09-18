@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="band.css">
+<style>
+  body { justify-content: center; }
+  .claim { font-size: 100px; letter-spacing: -0.02em; line-height: 0.88; display: block; }
+  .claim span { display: inline-block; white-space: nowrap; }
+</style>
+
+<div class="display claim">
+  <span>I build the layer between</span><br>
+  <span>raw data and the</span><br>
+  <span>millisecond that matters.</span>
+</div>
+
+<script>
+  document.fonts.ready.then(function () {
+    var box = document.querySelector('.claim');
+    var lines = box.querySelectorAll('span');
+    var target = document.body.clientWidth - 80;
+    function widest() {
+      var w = 0;
+      lines.forEach(function (l) { w = Math.max(w, l.getBoundingClientRect().width); });
+      return w;
+    }
+    var lo = 10, hi = 400;
+    for (var i = 0; i < 50; i++) {
+      var mid = (lo + hi) / 2;
+      box.style.fontSize = mid + 'px';
+      if (widest() <= target) lo = mid; else hi = mid;
+    }
+    box.style.fontSize = lo + 'px';
+    document.documentElement.dataset.ready = '1';
+  });
+</script>

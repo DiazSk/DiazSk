@@ -131,7 +131,7 @@ mean a replayed partition cannot double-count a tick.
 | **146** <br> `AUTOMATED TESTS` | [**Scalable E-Commerce Analytics**](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform) · `▪ ANALYTICS ENGINEERING` <br> CLV attribution across 50K+ events. SCD Type 1 overwrites history; segment-level attribution needs to reconstruct which customer state drove which revenue event, so SCD Type 2 preserves the full dimension history. The 2–3× storage footprint is the deliberate trade. Query time 4.2 s → 1.1 s. <br> `Apache Airflow` `dbt` `PostgreSQL` `AWS S3` `Terraform` `Docker` |
 | **90%** <br> `LATENCY REDUCTION` | [**E-Commerce Data Warehouse (Olist)**](https://github.com/DiazSk/sql-data-warehouse-project) · `▪ ANALYTICS ENGINEERING` <br> Snowflake schemas multiply join depth; wide tables double-count when orders and order items share a fact row. A strict star schema with **two grain-specific fact tables** resolves both — one grain, one join path, no aggregation ambiguity. 14 source systems, 1.6M+ records. <br> `Python` `PostgreSQL` `Snowflake` `Apache Airflow` `Docker` |
 
-<img src="assets/marquee.png" width="100%" alt="Kafka · Apache Flink · Apache Airflow · dbt · PySpark · Delta Lake · Terraform">
+<img src="assets/claim.png" width="100%" alt="I build the layer between raw data and the millisecond that matters.">
 
 ## STACK
 
