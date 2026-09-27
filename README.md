@@ -14,13 +14,13 @@ Open to full-time roles starting December 2026.
 
 ## HOW THESE WERE MEASURED
 
-A number on its own is a claim. Each of these is the delta against the design it replaced.
+A number on its own is a claim. Each of these says how it was taken.
 
 | | | |
 |:--|:--|:--|
 | `01` | **21,091 msg/s** <br> `SUSTAINED THROUGHPUT` | Write-through coupled message consumption to MySQL's 2–5 ms insert latency, capping throughput near **500 msg/s** regardless of broker capacity. Write-behind persistence with in-memory batching decoupled the two paths — **42× the baseline**, zero data loss across 1M messages. |
-| `02` | **<100 ms** <br> `END-TO-END LATENCY` | Market tick to rendered browser UI. 300 REST polls/min/user collapsed to **2 Kafka events** per market update — a 99% reduction — with Redis serving sub-1 ms hot reads to 20+ concurrent WebSocket clients. |
-| `03` | **9.6M records** <br> `ACID, TIME-TRAVELLED` | 80 GB across Bronze, Silver and Gold layers. Raw Parquet gives throughput but no correctness guarantees; Delta Lake gives ACID concurrency, schema evolution without rewrites, and point-in-time reconstruction. **35% less Databricks compute** via partition pruning. |
+| `02` | **400 clients** <br> `LIVE FAN-OUT, 0 LOST` | Highest WebSocket step tested, every client receiving the same trades as the best-served one (delivery ratio 1.000) at **p95 166 ms** exchange-to-client. Across four injected faults — Flink TaskManager kill, Kafka restart, 30 s Postgres and Redis outages — **0 trades lost, 0 inconsistent candles**. |
+| `03` | **9.66M rows** <br> `QUERYABLE, NO BACKEND` | 9,660,252 Medicare claims through a Bronze/Silver/Gold medallion in **231 s on a laptop**, served as tiered Parquet that DuckDB-WASM queries client-side by HTTP range request — the 52 MB detail tier is never downloaded. 13 quality gates, 10 parity assertions, 108 tests. |
 
 ---
 
@@ -58,68 +58,89 @@ read model, so a stalled write never blocks a query.
 
 ---
 
-### [Healthcare Data Lakehouse — Clinical Pipeline on Azure](https://github.com/DiazSk/healthcare-lakehouse-azure)
+### [Medicare Reimbursement Gap Analyzer — Lakehouse with In-Browser SQL](https://github.com/DiazSk/healthcare-lakehouse-azure)
 
-`▪ DATA ENGINEERING` · **9.6M records, 80 GB**
+`▪ DATA ENGINEERING` · **9.66M claims, served with no backend**
 
-Raw Parquet gives throughput but no correctness guarantees. When audit compliance is a
-hard requirement, you need ACID transactions for safe concurrent writes, schema
-evolution without table rewrites, and time-travel for point-in-time reconstruction.
-Delta Lake provides all three. Raw Parquet provides none of them.
+A cube cannot reproduce a row-level filter. Pre-aggregating the Gold marts made one
+dashboard panel **41% wrong while still looking plausible** — the totals were internally
+consistent, just answering a different question than the filter implied. A parity gate
+now re-derives every panel from the fact table and fails the build on disagreement.
+The same pass caught two of the 13 quality assertions that could never fail: a `NULL`
+inside `isin("F","O",None)` makes the predicate `NULL` for every row, so the test
+passed on any input. Serving is tiered Parquet read client-side by DuckDB-WASM over
+HTTP range requests, so 9.66M rows are queryable with no backend at all.
 
-**Result:** 9.6M records · 80 GB across Bronze, Silver and Gold layers · 35% Databricks compute reduction via partition pruning and incremental loads.
+**Result:** 9,660,252 claim rows from 3.06 GB source · full medallion run in **231 s on a laptop** · 13 quality gates, 10 parity assertions, 108 automated tests · **2 of 5 hypotheses refuted**, and the dashboard reports the refutations.
 
 <details>
 <summary><b>Architecture</b></summary>
 
 ```
-Source Systems → Azure Data Factory → ADLS Gen2 ┐
-                                                │
-          Bronze (raw, append-only) ────────────┤
-          Silver (conformed, deduped) ──────────┤ Delta Lake · Databricks · PySpark
-          Gold   (aggregated, serving) ─────────┘
-                                                │
-                                   Secrets ← Azure Key Vault
+CMS 2023 CSV (3.06 GB, public)
+      │
+      ├─ Azure path ····· Data Factory → ADLS Gen2 ← Key Vault / Entra ID (OAuth 2.0)
+      │                   (original; subscription retired mid-project)
+      └─ Local path ───── PySpark 3.5 + Delta 3.3, local[8]
+                              │
+        ┌─────────────────────┴─────────────────────┐
+        │  Medallion notebooks — identical on both  │
+        │  01 bronze→silver   28 explicit casts     │
+        │  02 →gold dims      provider/hcpcs/geo    │
+        │  03 →gold fact      NPI × HCPCS × POS     │
+        │  04 →5 hero marts   99 DQ · 13 assertions │
+        └─────────────────────┬─────────────────────┘
+                              │
+              tiered Parquet → DuckDB-WASM (GitHub Pages) · Power BI model
 ```
 
-Each layer is a Delta table, so every promotion is a transaction. Time-travel makes any
-audit question answerable against the table as it stood, not as it stands now.
+Every path resolves through one function, so `LAKEHOUSE_LOCAL_ROOT` redirects the whole
+pipeline from cloud to laptop without a fork — which is what saved the project when the
+Azure subscription was retired. The notebooks are byte-for-byte identical across both.
 
 </details>
 
-`Azure Data Factory` `Delta Lake` `Azure Databricks` `PySpark` `Azure Key Vault` `ADLS Gen2`
+`PySpark 3.5` `Delta Lake` `Azure Databricks` `Azure Data Factory` `ADLS Gen2` `Azure Key Vault` `Terraform` `DuckDB-WASM`
 
 ---
 
-### [Real-Time Crypto Analyzer — Full-Stack Streaming Platform](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer)
+### [Real-Time Crypto Analyzer — Streaming Market Terminal](https://github.com/DiazSk/Real-Time-Cryptocurrency-Market-Analyzer)
 
-`▪ SYSTEMS ENGINEERING` · **sub-100 ms end-to-end**
+`▪ SYSTEMS ENGINEERING` · **400 concurrent clients, 0 lost trades**
 
-300 REST polling calls per minute per user was the baseline. The real constraint was
-fan-out: as concurrent WebSocket users scaled, polling volume multiplied and upstream
-rate limits became the bottleneck. Kafka pub/sub collapsed 300 calls to 2 events per
-market update. Dual-path storage separates read concerns — Redis for sub-1 ms hot reads
-serving 20+ concurrent WebSocket users, TimescaleDB for OHLC aggregations and cold
-historical queries that would thrash an in-memory store.
+Every trade for 8 Coinbase pairs, deduplicated on trade ID, rolled into 1-minute OHLCV
+candles in **event time** — watermarks allow 2 s of out-of-order data — with an EWMA
+z-score detector on top. Sinks carry different guarantees on purpose: JDBC writes are
+insert-or-skip (effectively once), Kafka alerts are transactional and committed per 30 s
+checkpoint (exactly once), Redis is at-least-once and clients dedupe. Chaos testing
+earned its keep by finding a real bug: the API's pub/sub listener died on redis-py's own
+`ConnectionError`, so live trades never resumed after a Redis restart. Fixed, and covered
+by a test.
 
-**Result:** 99% polling reduction · sub-100 ms end-to-end latency from market tick to browser.
+**Result:** 17,969 trades ingested with **0 duplicates and 0 missed** · REST p95 **12.8 ms** at 10 concurrent clients (1,640 req/s) · 400-client WebSocket fan-out at delivery ratio **1.000**, p95 166 ms exchange-to-client · 0 lost trades across a Flink TaskManager kill, a Kafka broker restart, and 30 s Postgres and Redis outages.
 
 <details>
 <summary><b>Architecture</b></summary>
 
 ```
-Exchange Feed → Kafka → Flink (exactly-once) ┬→ Redis        → FastAPI → Next.js
-                                             │  hot reads      WebSocket   browser
-                                             └→ TimescaleDB
-                                                OHLC / history
+Coinbase WS ─→ Python producer ─→ Kafka ─→ Apache Flink ─┬─→ TimescaleDB ─┐
+               validation           4        dedup ·      │   + rollups    │
+               gap tracking      partitions  1m OHLCV     ├─→ Redis ───────┼─→ FastAPI ─→ Next.js
+                    ╰────── crypto:trades ──→ Redis       │   latest       │  REST + WS   terminal
+                                              (live line) └─→ Kafka alerts ┘
+                                                              exactly-once
+Airflow (hourly):  backfill 90d candles → repair trade gaps → dbt build
+                                                              48 nodes · 30 tests · 4 unit tests
 ```
 
-Fan-out happens once, at the broker, not once per user. Flink's exactly-once semantics
-mean a replayed partition cannot double-count a tick.
+Disagreement between the pipeline and Coinbase's official candles is reported in a mart,
+never failed as a test — close price matches 99.5–100% of minutes on the liquid pairs.
+Gap repair recovered 43 of 57 gaps **exactly by trade ID**; the 14 above the 10,000-trade
+cap are skipped and logged rather than silently interpolated.
 
 </details>
 
-`Next.js 16` `FastAPI` `Apache Kafka` `Apache Flink (Java)` `Redis` `TimescaleDB` `Docker`
+`Python` `Apache Kafka` `Apache Flink (Java)` `TimescaleDB` `Redis` `dbt` `Apache Airflow` `FastAPI` `Next.js` `Docker`
 
 ---
 
@@ -128,7 +149,7 @@ mean a replayed partition cannot double-count a tick.
 | Result | Project |
 |:--|:--|
 | **2.8M** <br> `CLEAN RECORDS` | [**NYC Taxi Data Lakehouse**](https://github.com/DiazSk/NYC-Taxi-Data-Lakehouse) · `▪ DATA ENGINEERING` <br> 100 GB batch pipeline on AWS. Athena charges $5/TB scanned, so Glue runs deduplication, schema normalization and null-handling **once at ingest** — the clean layer becomes a guaranteed fact for downstream dbt models rather than a per-query assumption. 96.8% retention through quality gates, fully reproducible via Terraform. <br> `AWS Glue` `PySpark` `Apache Airflow` `dbt` `AWS S3` `Terraform` `Docker` |
-| **146** <br> `AUTOMATED TESTS` | [**Scalable E-Commerce Analytics**](https://github.com/DiazSk/Modern-E-commerce-Analytics-Platform) · `▪ ANALYTICS ENGINEERING` <br> CLV attribution across 50K+ events. SCD Type 1 overwrites history; segment-level attribution needs to reconstruct which customer state drove which revenue event, so SCD Type 2 preserves the full dimension history. The 2–3× storage footprint is the deliberate trade. Query time 4.2 s → 1.1 s. <br> `Apache Airflow` `dbt` `PostgreSQL` `AWS S3` `Terraform` `Docker` |
+| **109.8M** <br> `REAL EVENTS` | [**E-commerce Funnel Lakehouse**](https://github.com/DiazSk/ecommerce-funnel-lakehouse) · `▪ ANALYTICS ENGINEERING` <br> REES46 clickstream, Oct–Nov 2019, on Databricks. Black Friday week lifted cart reach from 9.2% to **11.7%** (+2.5 pp, 95% CI +2.46 to +2.55) — but a four-day tracking gap nearly told the opposite story. Nov 15 logged 468,262 carts and **zero purchases**; leaving Nov 14–17 in the baseline reverses every headline result, and each reversal still looks statistically solid. The analysis finds the gap, measures what it costs, and excludes it. A dbt test now warns on any day with carts but no purchases. <br> `Databricks` `Delta Lake` `PySpark` `dbt` `Unity Catalog` `GitHub Actions` |
 | **90%** <br> `LATENCY REDUCTION` | [**E-Commerce Data Warehouse (Olist)**](https://github.com/DiazSk/sql-data-warehouse-project) · `▪ ANALYTICS ENGINEERING` <br> Snowflake schemas multiply join depth; wide tables double-count when orders and order items share a fact row. A strict star schema with **two grain-specific fact tables** resolves both — one grain, one join path, no aggregation ambiguity. 14 source systems, 1.6M+ records. <br> `Python` `PostgreSQL` `Snowflake` `Apache Airflow` `Docker` |
 
 <img src="assets/claim.png" width="100%" alt="I build the layer between raw data and the millisecond that matters.">
@@ -137,8 +158,8 @@ mean a replayed partition cannot double-count a tick.
 
 | | |
 |:--|:--|
-| `DATA PLATFORMS & PIPELINES` | `Apache Spark (PySpark)` `Apache Airflow` `Apache Kafka` `Apache Flink` `dbt` `Azure Data Factory` `RabbitMQ` <br> ETL/ELT pipelines · Medallion architecture |
-| `STORAGE & DATABASES` | `PostgreSQL` `MySQL` `Redis` `TimescaleDB` `Snowflake` `Delta Lake` `DuckDB` `AWS S3` <br> MongoDB |
+| `DATA PLATFORMS & PIPELINES` | `Apache Spark (PySpark)` `Apache Airflow` `Apache Kafka` `Apache Flink` `dbt` `Databricks` `Azure Data Factory` `RabbitMQ` <br> ETL/ELT pipelines · Medallion architecture · Asset Bundles · Unity Catalog |
+| `STORAGE & DATABASES` | `PostgreSQL` `MySQL` `Redis` `TimescaleDB` `Snowflake` `Delta Lake` `DuckDB` `DuckDB-WASM` `AWS S3` <br> MongoDB |
 | `CLOUD & INFRASTRUCTURE` | `AWS` `Azure` `Terraform` `Docker` `GitHub Actions` <br> Glue · S3 · Redshift · IAM · CloudWatch · ADLS Gen2 · Databricks · Key Vault · GitLab CI · Jenkins |
 | `LANGUAGES` | `Python` `Java` `SQL` `TypeScript` <br> Bash |
 | `PRODUCT & APIS` | `FastAPI` `Next.js 16` `React 19` `WebSockets` <br> Tailwind CSS · shadcn/ui · Zod |
