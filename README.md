@@ -20,7 +20,7 @@ A number on its own is a claim. Each of these says how it was taken.
 |:--|:--|:--|
 | `01` | **21,091 msg/s** <br> `SUSTAINED THROUGHPUT` | Write-through coupled message consumption to MySQL's 2–5 ms insert latency, capping throughput near **500 msg/s** regardless of broker capacity. Write-behind persistence with in-memory batching decoupled the two paths — **42× the baseline**, zero data loss across 1M messages. |
 | `02` | **400 clients** <br> `LIVE FAN-OUT, 0 LOST` | Highest WebSocket step tested, every client receiving the same trades as the best-served one (delivery ratio 1.000) at **p95 166 ms** exchange-to-client. Across four injected faults — Flink TaskManager kill, Kafka restart, 30 s Postgres and Redis outages — **0 trades lost, 0 inconsistent candles**. |
-| `03` | **9.66M rows** <br> `QUERYABLE, NO BACKEND` | 9,660,252 Medicare claims through a Bronze/Silver/Gold medallion in **231 s on a laptop**, served as tiered Parquet that DuckDB-WASM queries client-side by HTTP range request — the 52 MB detail tier is never downloaded. 13 quality gates, 10 parity assertions, 108 tests. |
+| `03` | **2 of 5** <br> `HYPOTHESES REFUTED` | Five hypotheses written down before any transformation ran; two of them failed, and the dashboard publishes the failures instead of quietly dropping them. A headline "+2,223% premium" rested on **11 providers**, so it renders with a `thin sample` badge rather than as a finding — warn, don't hide. Measured over 9,660,252 Medicare claims, 13 quality gates and 108 tests. |
 
 ---
 
