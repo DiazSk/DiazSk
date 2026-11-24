@@ -144,6 +144,45 @@ cap are skipped and logged rather than silently interpolated.
 
 ---
 
+### [TripMate — AI Trip Planner for Web and iPhone](https://github.com/DiazSk/tripmate)
+
+`▪ FULL-STACK · AI SYSTEMS` · **108 s → 41 s median story latency, found in the traces**
+
+A chatbot itinerary sounds right and doesn't know the museum is shut on Tuesdays. TripMate
+plans each day against data fetched for the actual travel dates (forecast, public holidays,
+OpenStreetMap opening hours) and writes it out with times, costs and walking legs. Every model
+call goes through one dispatcher that writes a trace row on every outcome, across two transports
+(the Claude CLI and the Anthropic API). Those traces showed the CLI making a background model
+call on 87 of 88 requests; it was removed, and a 2,048-token thinking budget took story scripts
+from 108 s to 41 s at the median. Answers can't name a place that was never fetched: places
+render from the evidence records the model's ids point at, and one unknown id replaces the whole
+answer with "nothing checked".
+
+**Result:** ~127k lines of TypeScript across web and an Expo iPhone app · 2,508 automated tests ·
+MapLibre chosen over Cesium by measurement: **3.4× fewer draw calls** under a drag, p95 frame
+9.8 ms vs 25.2 ms · story-mode dropped frames **45 → 7** with in-browser neural speech on WebGPU.
+
+<details>
+<summary><b>Architecture</b></summary>
+
+```
+Next.js web (3D map) ─┐                 ┌─→ Open-Meteo · Nager.Date · Overpass   (fail-soft fetchers)
+                      ├─→ 52 API routes ┤
+Expo iPhone app ──────┘   REST + SSE    └─→ runClaude() ─→ Claude CLI │ Anthropic API
+                                                │
+                                                └─→ llm_traces ─→ SQLite / Turso (libsql) ←─ trips
+```
+
+The facts and the rules are kept apart: the planning skill holds rules, the context file holds
+fetched facts only, and the prompt holds the ask. A plan that changed behind the chat's back is
+detected by fingerprint and announced to the model rather than silently replayed.
+
+</details>
+
+`TypeScript` `Next.js 16` `React 19` `Expo / React Native` `SQLite (libsql)` `Claude API` `MapLibre GL` `CesiumJS` `WebGPU`
+
+---
+
 ### ALSO SHIPPED
 
 | Result | Project |
