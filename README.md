@@ -18,7 +18,7 @@ A number on its own is a claim. Each of these says how it was taken.
 
 | | | |
 |:--|:--|:--|
-| `01` | **21,091 msg/s** <br> `SUSTAINED THROUGHPUT` | Write-through coupled message consumption to MySQL's 2–5 ms insert latency, capping throughput near **500 msg/s** regardless of broker capacity. Write-behind persistence with in-memory batching decoupled the two paths — **42× the baseline**, zero data loss across 1M messages. |
+| `01` | **21,091 msg/s** <br> `SUSTAINED THROUGHPUT` | Per-commit overhead dominated MySQL writes: a batch-size experiment measured **~2,000 msg/s** at 100-row batches and **~10,000 msg/s** at 5,000, a **5× gain**. Write-behind persistence with adaptive batching carried that to 21,091 msg/s of client throughput on EC2, **99.98% persisted** across 1M messages. |
 | `02` | **400 clients** <br> `LIVE FAN-OUT, 0 LOST` | Highest WebSocket step tested, every client receiving the same trades as the best-served one (delivery ratio 1.000) at **p95 166 ms** exchange-to-client. Across four injected faults — Flink TaskManager kill, Kafka restart, 30 s Postgres and Redis outages — **0 trades lost, 0 inconsistent candles**. |
 | `03` | **2 of 5** <br> `HYPOTHESES REFUTED` | Five hypotheses written down before any transformation ran; two of them failed, and the dashboard publishes the failures instead of quietly dropping them. A headline "+2,223% premium" rested on **11 providers**, so it renders with a `thin sample` badge rather than as a finding — warn, don't hide. Measured over 9,660,252 Medicare claims, 13 quality gates and 108 tests. |
 
@@ -30,13 +30,13 @@ A number on its own is a claim. Each of these says how it was taken.
 
 `▪ BACKEND ENGINEERING` · **21,091 msg/s sustained**
 
-MySQL's 2–5 ms insert latency coupled message consumption to persistence speed under
-write-through, capping throughput at roughly 500 msg/s regardless of broker capacity.
-Write-behind persistence with in-memory batching (500, 2K or 3K rows per commit, sized by queue depth) decoupled the two
-paths entirely. CQRS isolation kept read and write models independent, so write-side
+Per-commit overhead dominated MySQL writes: 100-row batches wrote ~2,000 msg/s and
+5,000-row batches ~10,000 msg/s, a 5× gain in a local batch-size experiment. Production
+was capped at 3,000 rows after the OOM killer stopped 5,000-row runs on a t3.small, so
+write-behind persistence batches 500, 2K or 3K rows per commit, sized by queue depth. CQRS isolation kept read and write models independent, so write-side
 failures could not starve read queries.
 
-**Result:** 21,091 msg/s sustained · 13 ms read latency at 1M-row scale · zero data loss across 1M messages.
+**Result:** 21,091 msg/s sustained · 13 ms read latency at 1M-row scale · 99.98% persisted across 1M messages.
 
 <details>
 <summary><b>Architecture</b></summary>
