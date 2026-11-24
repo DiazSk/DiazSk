@@ -32,7 +32,7 @@ A number on its own is a claim. Each of these says how it was taken.
 
 MySQL's 2–5 ms insert latency coupled message consumption to persistence speed under
 write-through, capping throughput at roughly 500 msg/s regardless of broker capacity.
-Write-behind persistence with in-memory batching (2k–5k rows/commit) decoupled the two
+Write-behind persistence with in-memory batching (500, 2K or 3K rows per commit, sized by queue depth) decoupled the two
 paths entirely. CQRS isolation kept read and write models independent, so write-side
 failures could not starve read queries.
 
@@ -43,11 +43,11 @@ failures could not starve read queries.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/chatflow-dark.png">
-  <img src="assets/diagrams/chatflow.png" width="100%" alt="Chatflow architecture: on the write path, chat clients send messages through a WebSocket gateway, RabbitMQ and a consumer pool into an in-memory batch buffer, which commits to MySQL in batches of 2k to 5k rows. On the read path, queries hit a Redis read model with a stampede guard; MySQL commits invalidate it and misses fall back to MySQL's reader pool.">
+  <img src="assets/diagrams/chatflow.png" width="100%" alt="Chatflow architecture: on the write path, chat clients send messages through a WebSocket gateway, RabbitMQ and a consumer pool into an in-memory batch buffer, which commits to MySQL in batches of 500, 2K or 3K rows, sized by queue depth. On the read path, queries hit a Redis read model with a stampede guard; MySQL commits invalidate it and misses fall back to MySQL's reader pool.">
 </picture>
 
 Write path and read path never share a bottleneck. The batch buffer absorbs broker
-bursts at memory speed; MySQL commits 2k–5k rows at a time behind it. Redis serves the
+bursts at memory speed; MySQL commits batches of 500, 2K or 3K rows behind it, sized by queue depth. Redis serves the
 read model, so a stalled write never blocks a query.
 
 </details>
