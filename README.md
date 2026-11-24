@@ -41,12 +41,10 @@ failures could not starve read queries.
 <details>
 <summary><b>Architecture</b></summary>
 
-```
-WebSocket Gateway → RabbitMQ → Consumer Pool → In-Memory Batch Buffer → MySQL
-                                     │                                    │
-                                     └──────→ Redis (hot reads) ←──────────┘
-                                              CQRS read model
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/chatflow-dark.png">
+  <img src="assets/diagrams/chatflow.png" width="100%" alt="Chatflow architecture: on the write path, chat clients send messages through a WebSocket gateway, RabbitMQ and a consumer pool into an in-memory batch buffer, which commits to MySQL in batches of 2k to 5k rows. On the read path, queries hit a Redis read model with a stampede guard; MySQL commits invalidate it and misses fall back to MySQL's reader pool.">
+</picture>
 
 Write path and read path never share a bottleneck. The batch buffer absorbs broker
 bursts at memory speed; MySQL commits 2k–5k rows at a time behind it. Redis serves the
@@ -76,23 +74,10 @@ HTTP range requests, so 9.66M rows are queryable with no backend at all.
 <details>
 <summary><b>Architecture</b></summary>
 
-```
-CMS 2023 CSV (3.06 GB, public)
-      │
-      ├─ Azure path ····· Data Factory → ADLS Gen2 ← Key Vault / Entra ID (OAuth 2.0)
-      │                   (original; subscription retired mid-project)
-      └─ Local path ───── PySpark 3.5 + Delta 3.3, local[8]
-                              │
-        ┌─────────────────────┴─────────────────────┐
-        │  Medallion notebooks — identical on both  │
-        │  01 bronze→silver   28 explicit casts     │
-        │  02 →gold dims      provider/hcpcs/geo    │
-        │  03 →gold fact      NPI × HCPCS × POS     │
-        │  04 →5 hero marts   99 DQ · 13 assertions │
-        └─────────────────────┬─────────────────────┘
-                              │
-              tiered Parquet → DuckDB-WASM (GitHub Pages) · Power BI model
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/medicare-dark.png">
+  <img src="assets/diagrams/medicare.png" width="100%" alt="Medicare medallion: CMS 2023 claims move from Bronze (3.06 GB CSV as delivered) to Silver (28 explicit casts, 9,660,252 rows), Gold (provider, HCPCS and geography dimensions plus one NPI by HCPCS by place-of-service fact), five pre-aggregated marts with 99 DQ checks and 13 assertions, and through a parity gate to tiered Parquet served by DuckDB-WASM on GitHub Pages with no backend. The original Azure path is retired; the pipeline now runs locally on PySpark 3.5 and Delta 3.3 in 231 seconds.">
+</picture>
 
 Every path resolves through one function, so `LAKEHOUSE_LOCAL_ROOT` redirects the whole
 pipeline from cloud to laptop without a fork — which is what saved the project when the
@@ -122,16 +107,10 @@ by a test.
 <details>
 <summary><b>Architecture</b></summary>
 
-```
-Coinbase WS ─→ Python producer ─→ Kafka ─→ Apache Flink ─┬─→ TimescaleDB ─┐
-               validation           4        dedup ·      │   + rollups    │
-               gap tracking      partitions  1m OHLCV     ├─→ Redis ───────┼─→ FastAPI ─→ Next.js
-                    ╰────── crypto:trades ──→ Redis       │   latest       │  REST + WS   terminal
-                                              (live line) └─→ Kafka alerts ┘
-                                                              exactly-once
-Airflow (hourly):  backfill 90d candles → repair trade gaps → dbt build
-                                                              48 nodes · 30 tests · 4 unit tests
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/crypto-dark.png">
+  <img src="assets/diagrams/crypto.png" width="100%" alt="Real-time crypto analyzer: Coinbase trades for 8 pairs flow through a Python producer and Kafka into Apache Flink, which deduplicates them and builds 1-minute candles in event time. Flink writes candles to TimescaleDB (insert-or-skip), the latest prices to Redis (at-least-once) and alerts back to Kafka exactly once. The producer also sends live trades straight to Redis. FastAPI and a Next.js terminal serve both stores, and Airflow runs hourly backfills, gap repair and a dbt build against TimescaleDB.">
+</picture>
 
 Disagreement between the pipeline and Coinbase's official candles is reported in a mart,
 never failed as a test — close price matches 99.5–100% of minutes on the liquid pairs.
@@ -165,13 +144,10 @@ MapLibre chosen over Cesium by measurement: **3.4× fewer draw calls** under a d
 <details>
 <summary><b>Architecture</b></summary>
 
-```
-Next.js web (3D map) ─┐                 ┌─→ Open-Meteo · Nager.Date · Overpass   (fail-soft fetchers)
-                      ├─→ 52 API routes ┤
-Expo iPhone app ──────┘   REST + SSE    └─→ runClaude() ─→ Claude CLI │ Anthropic API
-                                                │
-                                                └─→ llm_traces ─→ SQLite / Turso (libsql) ←─ trips
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/tripmate-dark.png">
+  <img src="assets/diagrams/tripmate.png" width="100%" alt="TripMate architecture: the web app and the iPhone app call 52 Next.js API routes over REST and SSE. The routes use fail-soft fact fetchers that call open travel data, plan checks for evidence ids and guardrails, and runClaude(), the one choke point that prompts Claude through the CLI or the Anthropic API and writes every call to SQLite or Turso, where trips are also stored.">
+</picture>
 
 The facts and the rules are kept apart: the planning skill holds rules, the context file holds
 fetched facts only, and the prompt holds the ask. A plan that changed behind the chat's back is
