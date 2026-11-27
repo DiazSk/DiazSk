@@ -1,5 +1,12 @@
 <a href="https://zaid-data.vercel.app/">
   <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/portrait-still.webp">
+    <img src="assets/portrait.webp" width="100%" alt="The cold open of zaid-data.vercel.app: quick cuts through black-and-white engravings and paintings land on a portrait of Zaid Shaikh in dark sunglasses against a golden-orange sky, with the art drifting behind him.">
+  </picture>
+</a>
+
+<a href="https://zaid-data.vercel.app/">
+  <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/hero.png">
     <img src="assets/hero.gif" width="100%" alt="Zaid Shaikh. Every pipeline I build ships with the number that decided it. Data Engineer · Seattle, WA · Full-time from December 2026 · MS CS, Northeastern, 4.0.">
   </picture>
