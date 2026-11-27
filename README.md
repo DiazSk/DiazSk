@@ -127,32 +127,19 @@ them too.
 |:--|:--|:--|
 | AI / LLM engineering | [TripMate](https://github.com/DiazSk/tripmate): checks its plan against real forecast, holiday and opening-hours data, every model call traced | Shipped |
 | Product engineering | Chatflow · TripMate: a 21,091 msg/s messaging system and an AI planner in Next.js | Shipped |
-| UI/UX & product design | Kitchen, below | Shipping |
+| UI/UX & product design | Kitchen: a family's kitchen-tablet app, every screen redesigned | Shipping |
 | Design engineering | [zaid-data.vercel.app](https://zaid-data.vercel.app/): explored through dozens of directions in MagicPath, built into one system with Claude Code | Shipping |
 
 ### Kitchen &nbsp;·&nbsp; a family's kitchen-tablet app
 
-`UI/UX · PRODUCT DESIGN` · **8 Home directions · 63 revisions on the one I chose · 13 screens redesigned, 3 new · 4 viewports × day and night**
+`UI/UX · PRODUCT DESIGN` · **8 Home directions · 63 revisions on the one I chose · 13 screens redesigned, 3 new**
 
-<img src="assets/beyond/kitchen-home.webp" width="100%" alt="Kitchen's Calm Wall home screen on the wall tablet: a large 5:40 clock and greeting, today's events, tonight's dinner, shopping, reminders, lunchboxes and family notes, with labelled tabs along the bottom. Demo data, names changed.">
+A wall tablet read from 2–3 m and touched with wet hands. I explored eight Home directions side by side in
+MagicPath, carried one through 63 revisions, and wrote the UX rules before the screens: 48 px minimum targets,
+a type scale from 14 to 96 px, 4.5:1 contrast and a 5-second Undo on every check-off. Then every screen was
+rebuilt in code and checked at four viewports in day and night themes. Still in progress.
 
-<sub>Calm Wall · the Home it became (demo data, names changed)</sub>
-
-<img src="assets/beyond/kitchen-directions.webp" width="100%" alt="Five earlier directions for the same Home screen: an editorial page, a fridge-door board, a retro appliance panel, a magnet board and a refined appliance panel.">
-
-<sub>Five of the eight directions I explored first · A Morning Market · D Fridge Door 2.0 · E Appliance · G Magnet Board · H Appliance (principled)</sub>
-
-**Chose** Calm Wall: one quiet Home that answers "what's next?" at a glance, with the clock, today, tonight's dinner and the family's lists each in its own card.
-
-**Over** seven louder directions I designed first, from an editorial page to fridge doors, a magnet board and retro appliance panels.
-
-**Because** the tablet hangs on a kitchen wall. It is read from 2–3 m and touched with wet or messy hands, so the clock and the next thing due have to carry across the room, and every control needs a 48 px target with space around it.
-
-- Wrote the UX rules before the screens: a six-step type scale from 14 to 96 px, 48 px minimum targets, one job per colour, 4.5:1 contrast, and a 5-second Undo on every check-off, timer stop and star.
-- Split the wall into two zones: a Glance view with no controls for reading across the room, and the Touch board for arm's length.
-- Rebuilt every screen in code in one pull request, adding school lunches, a Morning board and a Family board, then checked every route at four viewports in day and night themes.
-
-`MagicPath` `Claude Code` `Next.js` `React` `TypeScript` `Tailwind CSS` `Framer Motion` `Postgres`
+`MagicPath` `Claude Code` `Next.js` `React` `TypeScript` `Tailwind CSS`
 
 &nbsp;
 
