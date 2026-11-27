@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="band.css">
+<style>
+  body{justify-content:flex-start;gap:26px}
+  h2{font-size:64px;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;text-transform:uppercase;line-height:.9}
+  h2 .em{font-size:1.1em;color:var(--hot)}
+  table{width:100%;border-collapse:collapse}
+  th{text-align:left;padding:0 0 12px}
+  td{padding:14px 0;border-top:1px solid var(--rule);vertical-align:middle}
+  .flap{display:inline-flex;gap:3px;flex-wrap:wrap;row-gap:4px}
+  .flap i{position:relative;display:inline-grid;place-items:center;min-width:23px;height:34px;padding:0 2px;font-style:normal;
+    background:var(--tile);color:var(--paper);border-radius:2px;font-family:"Martian Mono",monospace;font-weight:600;font-size:17px}
+  .flap i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#0a0a09cc}
+  .flap i.sp{min-width:10px;background:none}
+  .flap i.sp::after{display:none}
+  .via{font-size:22px;font-weight:800;font-variation-settings:"wdth" 80,"wght" 800}
+  .s-shipped .st i:not(.sp){background:var(--paper);color:var(--ink)}
+  .s-shipping .st i:not(.sp){background:var(--hot);color:var(--ink)}
+  td.st{text-align:right}
+</style>
+<body>
+<div class="row label"><span>Departures</span><span class="dim">From Dec 2026</span></div>
+<h2>Beyond the <span class="em">pipeline.</span></h2>
+<table>
+  <tr class="label dim"><th>Role</th><th>Proven by</th><th style="text-align:right">Status</th></tr>
+  <tbody id="rows"></tbody>
+</table>
+<script>
+  /* the same rows as src/site/Beyond.tsx */
+  const ROWS = [["AI / LLM engineering","TripMate","Shipped"],["Product engineering","Chatflow · TripMate","Shipped"],
+    ["UI/UX & product design","Kitchen","Shipping"],["Design engineering","My portfolio site","Shipping"]];
+  const flap = t => `<span class="flap">${[...t.toUpperCase()].map(c => c === " " ? '<i class="sp"></i>' : `<i>${c}</i>`).join("")}</span>`;
+  document.getElementById("rows").innerHTML = ROWS.map(([r, v, s]) =>
+    `<tr class="s-${s.toLowerCase()}"><td>${flap(r)}</td><td class="via">${v}</td><td class="st">${flap(s)}</td></tr>`).join("");
+  document.fonts.ready.then(() => document.documentElement.dataset.ready = "1");
+</script>

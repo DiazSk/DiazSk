@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How TripMate fits together</title>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Bricolage Grotesque', system-ui, sans-serif; background: #f5f2ed; color: #0a0a09; min-height: 100vh;
+body { font-family: 'Archivo', system-ui, sans-serif; background: #f3eadb; color: #0a0a09; min-height: 100vh;
   display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; }
 .frame { max-width: 1200px; width: 100%; }
 .diagram-container { width: 100%; overflow-x: auto; }
-.eyebrow { font-family: 'Azeret Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em;
+.eyebrow { font-family: 'Martian Mono', ui-monospace, monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em;
   text-transform: uppercase; color: #4f4943; margin-bottom: 0.5rem; }
-h1 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 700;
+h1 { font-family: 'Archivo', system-ui, sans-serif; font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem); font-weight: 700;
   letter-spacing: -0.02em; line-height: 1.15; color: #0a0a09; margin-bottom: 1.5rem; }
 svg { width: 100%; min-width: 960px; display: block; }
 @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+[font-family*="Martian"]{font-stretch:87.5%}
 </style>
 </head>
 <body>
@@ -29,128 +30,128 @@ svg { width: 100%; min-width: 960px; display: block; }
 <desc id="tripmate-desc">TripMate's web and iPhone apps call 52 Next.js API routes, which use fail-soft fact fetchers, plan checks and one runClaude() choke point that calls Claude and records every call in SQLite or Turso.</desc>
 <defs>
 <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f4943"/></marker>
-<marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff3b14"/></marker>
+<marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff4a2a"/></marker>
 <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1d5c63"/></marker>
 </defs>
-<rect x="0" y="0" width="960" height="456" fill="#f5f2ed"/>
+<rect x="0" y="0" width="960" height="456" fill="#f3eadb"/>
 <rect x="40" y="40" width="168" height="336" rx="8" fill="rgba(10,10,9,0.02)" stroke="rgba(10,10,9,0.1)" stroke-width="0.8"/>
-<rect x="96.0" y="44" width="56" height="12" rx="2" fill="#f5f2ed"/>
-<text x="124.0" y="53" fill="#6b645c" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">CLIENTS</text>
+<rect x="96.0" y="44" width="56" height="12" rx="2" fill="#f3eadb"/>
+<text x="124.0" y="53" fill="#6b645c" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">CLIENTS</text>
 <rect x="256" y="40" width="400" height="336" rx="8" fill="rgba(10,10,9,0.02)" stroke="rgba(10,10,9,0.1)" stroke-width="0.8"/>
-<rect x="410.0" y="44" width="92" height="12" rx="2" fill="#f5f2ed"/>
-<text x="456.0" y="53" fill="#6b645c" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">NEXT.JS SERVER</text>
+<rect x="410.0" y="44" width="92" height="12" rx="2" fill="#f3eadb"/>
+<text x="456.0" y="53" fill="#6b645c" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">NEXT.JS SERVER</text>
 <rect x="704" y="40" width="216" height="336" rx="8" fill="rgba(10,10,9,0.02)" stroke="rgba(10,10,9,0.1)" stroke-width="0.8"/>
-<rect x="784.0" y="44" width="56" height="12" rx="2" fill="#f5f2ed"/>
-<text x="812.0" y="53" fill="#6b645c" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">OUTSIDE</text>
+<rect x="784.0" y="44" width="56" height="12" rx="2" fill="#f3eadb"/>
+<text x="812.0" y="53" fill="#6b645c" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.14em">OUTSIDE</text>
 <path d="M196,128 H272" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
 <path d="M196,248 H272" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
 <path d="M432,104 H480" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
 <path d="M432,192 H480" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
 <path d="M432,280 H480" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
 <path d="M640,104 H716" fill="none" stroke="#1d5c63" stroke-width="1.2" marker-end="url(#arrow-link)"/>
-<path d="M640,280 H716" fill="none" stroke="#ff3b14" stroke-width="1.6" marker-end="url(#arrow-accent)"/>
+<path d="M640,280 H716" fill="none" stroke="#ff4a2a" stroke-width="1.6" marker-end="url(#arrow-accent)"/>
 <path d="M600,312 V336 Q600,344 608,344 H716" fill="none" stroke="#4f4943" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
 <path d="M352,344 V352 Q352,360 360,360 H716" fill="none" stroke="#4f4943" stroke-width="1.2" marker-end="url(#arrow)"/>
-<rect x="436.0" y="340" width="40" height="12" rx="2" fill="#f5f2ed"/>
-<text x="456" y="349" fill="#6b645c" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">TRIPS</text>
-<rect x="200.0" y="108" width="68" height="12" rx="2" fill="#f5f2ed"/>
-<text x="234" y="117" fill="#6b645c" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">REST + SSE</text>
-<rect x="658.0" y="84" width="40" height="12" rx="2" fill="#f5f2ed"/>
-<text x="678" y="93" fill="#6b645c" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">FETCH</text>
-<rect x="654.0" y="260" width="48" height="12" rx="2" fill="#f5f2ed"/>
-<text x="678" y="269" fill="#6b645c" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">PROMPT</text>
-<rect x="626.0" y="324" width="68" height="12" rx="2" fill="#f5f2ed"/>
-<text x="660" y="333" fill="#6b645c" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">EVERY CALL</text>
-<rect x="52" y="96" width="144" height="64" rx="6" fill="#f5f2ed"/>
+<rect x="436.0" y="340" width="40" height="12" rx="2" fill="#f3eadb"/>
+<text x="456" y="349" fill="#6b645c" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">TRIPS</text>
+<rect x="200.0" y="108" width="68" height="12" rx="2" fill="#f3eadb"/>
+<text x="234" y="117" fill="#6b645c" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">REST + SSE</text>
+<rect x="658.0" y="84" width="40" height="12" rx="2" fill="#f3eadb"/>
+<text x="678" y="93" fill="#6b645c" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">FETCH</text>
+<rect x="654.0" y="260" width="48" height="12" rx="2" fill="#f3eadb"/>
+<text x="678" y="269" fill="#6b645c" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">PROMPT</text>
+<rect x="626.0" y="324" width="68" height="12" rx="2" fill="#f3eadb"/>
+<text x="660" y="333" fill="#6b645c" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">EVERY CALL</text>
+<rect x="52" y="96" width="144" height="64" rx="6" fill="#f3eadb"/>
 <rect x="52" y="96" width="144" height="64" rx="6" fill="rgba(79,73,67,0.1)" stroke="#6b645c" stroke-width="1"/>
 <rect x="60" y="102" width="48" height="12" rx="2" fill="none" stroke="rgba(79,73,67,0.45)" stroke-width="0.8"/>
-<text x="84.0" y="111" fill="#4f4943" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NEXT.JS</text>
-<text x="124.0" y="133" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">Web app</text>
-<text x="124.0" y="147" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">3D map · story mode</text>
-<rect x="52" y="216" width="144" height="64" rx="6" fill="#f5f2ed"/>
+<text x="84.0" y="111" fill="#4f4943" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NEXT.JS</text>
+<text x="124.0" y="133" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">Web app</text>
+<text x="124.0" y="147" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">3D map · story mode</text>
+<rect x="52" y="216" width="144" height="64" rx="6" fill="#f3eadb"/>
 <rect x="52" y="216" width="144" height="64" rx="6" fill="rgba(79,73,67,0.1)" stroke="#6b645c" stroke-width="1"/>
 <rect x="60" y="222" width="32" height="12" rx="2" fill="none" stroke="rgba(79,73,67,0.45)" stroke-width="0.8"/>
-<text x="76.0" y="231" fill="#4f4943" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">EXPO</text>
-<text x="124.0" y="253" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">iPhone app</text>
-<text x="124.0" y="267" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">Live Activities</text>
-<rect x="272" y="72" width="160" height="272" rx="6" fill="#f5f2ed"/>
+<text x="76.0" y="231" fill="#4f4943" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">EXPO</text>
+<text x="124.0" y="253" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">iPhone app</text>
+<text x="124.0" y="267" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">Live Activities</text>
+<rect x="272" y="72" width="160" height="272" rx="6" fill="#f3eadb"/>
 <rect x="272" y="72" width="160" height="272" rx="6" fill="#ffffff" stroke="#0a0a09" stroke-width="1"/>
 <rect x="280" y="78" width="28" height="12" rx="2" fill="none" stroke="rgba(10,10,9,0.45)" stroke-width="0.8"/>
-<text x="294.0" y="87" fill="#0a0a09" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">API</text>
-<text x="352.0" y="112" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">52 API routes</text>
+<text x="294.0" y="87" fill="#0a0a09" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">API</text>
+<text x="352.0" y="112" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">52 API routes</text>
 <line x1="288" y1="128" x2="416" y2="128" stroke="rgba(10,10,9,0.12)" stroke-width="0.8"/>
-<text x="288" y="144" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Bricolage Grotesque', system-ui, sans-serif">Planning</text>
-<text x="288" y="159" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace">itinerary · staged</text>
+<text x="288" y="144" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Archivo', system-ui, sans-serif">Planning</text>
+<text x="288" y="159" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace">itinerary · staged</text>
 <line x1="288" y1="184" x2="416" y2="184" stroke="rgba(10,10,9,0.12)" stroke-width="0.8"/>
-<text x="288" y="200" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Bricolage Grotesque', system-ui, sans-serif">Edits and questions</text>
-<text x="288" y="215" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace">trip-edit · read-idea</text>
+<text x="288" y="200" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Archivo', system-ui, sans-serif">Edits and questions</text>
+<text x="288" y="215" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace">trip-edit · read-idea</text>
 <line x1="288" y1="240" x2="416" y2="240" stroke="rgba(10,10,9,0.12)" stroke-width="0.8"/>
-<text x="288" y="256" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Bricolage Grotesque', system-ui, sans-serif">Trips and places</text>
-<text x="288" y="271" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace">share · export · route</text>
+<text x="288" y="256" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Archivo', system-ui, sans-serif">Trips and places</text>
+<text x="288" y="271" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace">share · export · route</text>
 <line x1="288" y1="296" x2="416" y2="296" stroke="rgba(10,10,9,0.12)" stroke-width="0.8"/>
-<text x="288" y="312" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Bricolage Grotesque', system-ui, sans-serif">Accounts</text>
-<text x="288" y="327" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace">claim · profile</text>
-<rect x="480" y="72" width="160" height="64" rx="6" fill="#f5f2ed"/>
+<text x="288" y="312" fill="#0a0a09" font-size="11" font-weight="500" font-family="'Archivo', system-ui, sans-serif">Accounts</text>
+<text x="288" y="327" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace">claim · profile</text>
+<rect x="480" y="72" width="160" height="64" rx="6" fill="#f3eadb"/>
 <rect x="480" y="72" width="160" height="64" rx="6" fill="#ffffff" stroke="#0a0a09" stroke-width="1"/>
 <rect x="488" y="78" width="56" height="12" rx="2" fill="none" stroke="rgba(10,10,9,0.45)" stroke-width="0.8"/>
-<text x="516.0" y="87" fill="#0a0a09" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FAIL-SOFT</text>
-<text x="560.0" y="109" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">Fact fetchers</text>
-<text x="560.0" y="123" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">null = failed · [] = none</text>
-<rect x="480" y="160" width="160" height="64" rx="6" fill="#f5f2ed"/>
+<text x="516.0" y="87" fill="#0a0a09" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FAIL-SOFT</text>
+<text x="560.0" y="109" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">Fact fetchers</text>
+<text x="560.0" y="123" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">null = failed · [] = none</text>
+<rect x="480" y="160" width="160" height="64" rx="6" fill="#f3eadb"/>
 <rect x="480" y="160" width="160" height="64" rx="6" fill="#ffffff" stroke="#0a0a09" stroke-width="1"/>
 <rect x="488" y="166" width="36" height="12" rx="2" fill="none" stroke="rgba(10,10,9,0.45)" stroke-width="0.8"/>
-<text x="506.0" y="175" fill="#0a0a09" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">GUARD</text>
-<text x="560.0" y="197" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">Plan checks</text>
-<text x="560.0" y="211" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">evidence ids · guardrails</text>
-<rect x="480" y="248" width="160" height="64" rx="6" fill="#f5f2ed"/>
-<rect x="480" y="248" width="160" height="64" rx="6" fill="rgba(255,59,20,0.08)" stroke="#ff3b14" stroke-width="1.4"/>
+<text x="506.0" y="175" fill="#0a0a09" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">GUARD</text>
+<text x="560.0" y="197" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">Plan checks</text>
+<text x="560.0" y="211" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">evidence ids · guardrails</text>
+<rect x="480" y="248" width="160" height="64" rx="6" fill="#f3eadb"/>
+<rect x="480" y="248" width="160" height="64" rx="6" fill="rgba(255,59,20,0.08)" stroke="#ff4a2a" stroke-width="1.4"/>
 <rect x="488" y="254" width="28" height="12" rx="2" fill="none" stroke="rgba(196,42,10,0.45)" stroke-width="0.8"/>
-<text x="502.0" y="263" fill="#c42a0a" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">LLM</text>
-<text x="560.0" y="285" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">runClaude()</text>
-<text x="560.0" y="299" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">one choke point</text>
-<rect x="716" y="72" width="192" height="64" rx="6" fill="#f5f2ed"/>
+<text x="502.0" y="263" fill="#c42a0a" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">LLM</text>
+<text x="560.0" y="285" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">runClaude()</text>
+<text x="560.0" y="299" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">one choke point</text>
+<rect x="716" y="72" width="192" height="64" rx="6" fill="#f3eadb"/>
 <rect x="716" y="72" width="192" height="64" rx="6" fill="rgba(10,10,9,0.03)" stroke="rgba(10,10,9,0.3)" stroke-width="1"/>
 <rect x="724" y="78" width="56" height="12" rx="2" fill="none" stroke="rgba(79,73,67,0.45)" stroke-width="0.8"/>
-<text x="752.0" y="87" fill="#4f4943" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">OPEN DATA</text>
-<text x="812.0" y="106" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">Travel facts</text>
-<text x="812.0" y="120" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">Open-Meteo · Nager.Date</text>
-<text x="812.0" y="130" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">OpenStreetMap</text>
-<rect x="716" y="248" width="192" height="64" rx="6" fill="#f5f2ed"/>
+<text x="752.0" y="87" fill="#4f4943" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">OPEN DATA</text>
+<text x="812.0" y="106" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">Travel facts</text>
+<text x="812.0" y="120" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">Open-Meteo · Nager.Date</text>
+<text x="812.0" y="130" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">OpenStreetMap</text>
+<rect x="716" y="248" width="192" height="64" rx="6" fill="#f3eadb"/>
 <rect x="716" y="248" width="192" height="64" rx="6" fill="rgba(10,10,9,0.03)" stroke="rgba(10,10,9,0.3)" stroke-width="1"/>
 <rect x="724" y="254" width="36" height="12" rx="2" fill="none" stroke="rgba(79,73,67,0.45)" stroke-width="0.8"/>
-<text x="742.0" y="263" fill="#4f4943" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">MODEL</text>
-<text x="812.0" y="285" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">Claude</text>
-<text x="812.0" y="299" fill="#4f4943" font-size="8.5" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle">CLI or Anthropic API</text>
-<rect x="716" y="320" width="192" height="48" rx="6" fill="#f5f2ed"/>
+<text x="742.0" y="263" fill="#4f4943" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">MODEL</text>
+<text x="812.0" y="285" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">Claude</text>
+<text x="812.0" y="299" fill="#4f4943" font-size="8.5" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle">CLI or Anthropic API</text>
+<rect x="716" y="320" width="192" height="48" rx="6" fill="#f3eadb"/>
 <rect x="716" y="320" width="192" height="48" rx="6" fill="rgba(10,10,9,0.05)" stroke="#4f4943" stroke-width="1"/>
 <rect x="724" y="326" width="20" height="12" rx="2" fill="none" stroke="rgba(79,73,67,0.45)" stroke-width="0.8"/>
-<text x="734.0" y="335" fill="#4f4943" font-size="7" font-family="'Azeret Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">DB</text>
-<text x="812.0" y="360" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Bricolage Grotesque', system-ui, sans-serif" text-anchor="middle">SQLite / Turso</text>
+<text x="734.0" y="335" fill="#4f4943" font-size="7" font-family="'Martian Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">DB</text>
+<text x="812.0" y="360" fill="#0a0a09" font-size="12" font-weight="600" font-family="'Archivo', system-ui, sans-serif" text-anchor="middle">SQLite / Turso</text>
 <line x1="40" y1="408" x2="920" y2="408" stroke="rgba(10,10,9,0.1)" stroke-width="0.8"/>
-<text x="40" y="428" fill="#4f4943" font-size="8" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.14em">LEGEND</text>
+<text x="40" y="428" fill="#4f4943" font-size="8" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.14em">LEGEND</text>
 <path d="M108,425 H128" stroke="#4f4943" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
-<text x="134" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">REQUEST</text>
+<text x="134" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">REQUEST</text>
 <path d="M196,425 H216" stroke="#1d5c63" stroke-width="1.2" fill="none" marker-end="url(#arrow-link)"/>
-<text x="222" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">OUTSIDE CALL</text>
-<path d="M310,425 H330" stroke="#ff3b14" stroke-width="1.2" fill="none" marker-end="url(#arrow-accent)"/>
-<text x="336" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">MODEL CALL</text>
+<text x="222" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">OUTSIDE CALL</text>
+<path d="M310,425 H330" stroke="#ff4a2a" stroke-width="1.2" fill="none" marker-end="url(#arrow-accent)"/>
+<text x="336" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">MODEL CALL</text>
 <path d="M414,425 H434" stroke="#4f4943" stroke-width="1.2" stroke-dasharray="5,4" fill="none" marker-end="url(#arrow)"/>
-<text x="440" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">TRACE WRITE</text>
-<rect x="523" y="420" width="16" height="10" rx="2" fill="#f5f2ed"/>
+<text x="440" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">TRACE WRITE</text>
+<rect x="523" y="420" width="16" height="10" rx="2" fill="#f3eadb"/>
 <rect x="523" y="420" width="16" height="10" rx="2" fill="rgba(79,73,67,0.1)" stroke="#6b645c" stroke-width="1"/>
-<text x="545" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">CLIENT</text>
-<rect x="602" y="420" width="16" height="10" rx="2" fill="#f5f2ed"/>
+<text x="545" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">CLIENT</text>
+<rect x="602" y="420" width="16" height="10" rx="2" fill="#f3eadb"/>
 <rect x="602" y="420" width="16" height="10" rx="2" fill="#ffffff" stroke="#0a0a09" stroke-width="1"/>
-<text x="624" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">SERVER</text>
-<rect x="681" y="420" width="16" height="10" rx="2" fill="#f5f2ed"/>
+<text x="624" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">SERVER</text>
+<rect x="681" y="420" width="16" height="10" rx="2" fill="#f3eadb"/>
 <rect x="681" y="420" width="16" height="10" rx="2" fill="rgba(10,10,9,0.05)" stroke="#4f4943" stroke-width="1"/>
-<text x="703" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">STORE</text>
-<rect x="755" y="420" width="16" height="10" rx="2" fill="#f5f2ed"/>
+<text x="703" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">STORE</text>
+<rect x="755" y="420" width="16" height="10" rx="2" fill="#f3eadb"/>
 <rect x="755" y="420" width="16" height="10" rx="2" fill="rgba(10,10,9,0.03)" stroke="rgba(10,10,9,0.3)" stroke-width="1"/>
-<text x="777" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">OUTSIDE</text>
-<rect x="839" y="420" width="16" height="10" rx="2" fill="#f5f2ed"/>
-<rect x="839" y="420" width="16" height="10" rx="2" fill="rgba(255,59,20,0.08)" stroke="#ff3b14" stroke-width="1"/>
-<text x="861" y="428" fill="#4f4943" font-size="7.5" font-family="'Azeret Mono', ui-monospace, monospace" letter-spacing="0.06em">FOCAL</text>
+<text x="777" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">OUTSIDE</text>
+<rect x="839" y="420" width="16" height="10" rx="2" fill="#f3eadb"/>
+<rect x="839" y="420" width="16" height="10" rx="2" fill="rgba(255,59,20,0.08)" stroke="#ff4a2a" stroke-width="1"/>
+<text x="861" y="428" fill="#4f4943" font-size="7.5" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="0.06em">FOCAL</text>
 </svg>
 </div>
 </div>

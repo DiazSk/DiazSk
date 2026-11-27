@@ -2,38 +2,43 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="band.css">
 <style>
-  .name { font-size: 100px; }
-  .cols { display: flex; justify-content: space-between; gap: 40px; }
-  .cols .right { text-align: right; }
+  .say{display:flex;flex-direction:column;font-size:86px}
+  .ln{display:block;white-space:nowrap;width:max-content}
+  .ln:nth-child(2){margin:0 auto}
+  .ln:nth-child(3){margin-left:auto}
+  .w{position:relative;display:inline-block;margin-right:.2em}
+  .w:last-child{margin-right:0}
+  .w .o{color:transparent;-webkit-text-stroke:1.5px rgba(243,234,219,.28)}
+  /* as on the site: the fill's right edge runs past the box so the italic overhang fills too */
+  .w .f{position:absolute;inset:0;color:var(--paper);clip-path:inset(-12% calc((1 - var(--q,1)) * 115% - 15%) -12% 0)}
+  .w.em{font-size:1.1em;line-height:.78}
+  .w.em .o{-webkit-text-stroke:1px rgba(255,74,42,.45)}
+  .w.em .f{color:var(--hot)}
 </style>
-
-<div class="name-wrap"><span class="display name">Zaid Shaikh</span></div>
-
-<div>
-  <div class="rule"></div>
-  <div class="meta cols">
-    <div class="label">
-      Data Engineer &middot; Backend Systems<br>
-      <span class="dim">Seattle, WA &middot; Available December 2026</span>
-    </div>
-    <div class="label right">
-      MS Computer Science, Northeastern<br>
-      <span class="dim">shaikh.zaid@northeastern.edu</span>
-    </div>
-  </div>
+<body>
+<div class="row label"><span>Zaid Shaikh</span><span class="dim">zaid-data.vercel.app</span></div>
+<p class="say caps" id="say"></p>
+<div class="row rule label">
+  <span>Data Engineer</span><span class="dim">Seattle, WA</span><span class="dim">Full-time from Dec 2026</span><span class="dim">MS CS, Northeastern &middot; 4.0</span>
 </div>
-
 <script>
-  document.fonts.ready.then(function () {
-    var el = document.querySelector('.name');
-    var target = document.body.clientWidth - 80;
-    var lo = 10, hi = 900;
-    for (var i = 0; i < 50; i++) {
-      var mid = (lo + hi) / 2;
-      el.style.fontSize = mid + 'px';
-      if (el.getBoundingClientRect().width <= target) lo = mid; else hi = mid;
+  /* ?q=0..1 sets how much of the line is written (the GIF steps it); no q = finished */
+  const LINES = [["Every","pipeline","I","build"],["ships","with","the","*number"],["that","*decided","it."]];
+  const q = new URLSearchParams(location.search).has("q") ? +new URLSearchParams(location.search).get("q") : 1;
+  const N = LINES.flat().length; let k = 0;
+  const say = document.getElementById("say");
+  for (const ln of LINES) {
+    const l = document.createElement("span"); l.className = "ln";
+    for (const raw of ln) {
+      const em = raw.startsWith("*"), w = em ? raw.slice(1) : raw;
+      const s = document.createElement("span"); s.className = "w" + (em ? " em" : "");
+      s.style.setProperty("--q", Math.max(0, Math.min(1, q * N - k++)));
+      s.innerHTML = `<span class="o">${w}</span><span class="f">${w}</span>`;
+      l.appendChild(s);
     }
-    el.style.fontSize = lo + 'px';
-    document.documentElement.dataset.ready = '1';
-  });
+    say.appendChild(l);
+  }
+  /* the GIF capture steps this */
+  window.setQ = v => document.querySelectorAll(".w").forEach((w, i) => w.style.setProperty("--q", Math.max(0, Math.min(1, v * N - i))));
+  document.fonts.ready.then(() => document.documentElement.dataset.ready = "1");
 </script>
